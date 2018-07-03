@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {} from '../action/bottom-nav';
+//import {} from '../action/bottom-nav';
 
 import './bottom-nav.css';
 

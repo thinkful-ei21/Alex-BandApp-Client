@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {} from '../action/top-nav';
+//import {} from '../action/top-nav';
 
 import './top-nav.css';
 

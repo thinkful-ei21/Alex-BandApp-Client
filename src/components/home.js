@@ -5,9 +5,11 @@ import Header from './header';
 import Feeds from './feeds';
 import BottomNav from './bottom-nav';
 
+import './home.css'
+
 export default function Home(props) {
   return (
-    <div>
+    <div className="home">
       <Header />
       <main role="main">
         <Feeds />
