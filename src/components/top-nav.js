@@ -10,7 +10,7 @@ export function TopNav(props) {
         <nav>
             <ul className="navList">
                 <li>
-                    <a href="#" className="navLink" aria-label="Music Page">
+                    <a href="#" id="the-music" className="navLink" aria-label="Music Page">
                         The Music
                     </a>
                 </li>

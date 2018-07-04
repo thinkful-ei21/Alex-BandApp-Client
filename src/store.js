@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 
 import posts from './reducers/posts'
 import events from './reducers/events'
-const reducers = combineReducers({posts, events});
+import modals from './reducers/modals'
+const reducers = combineReducers({posts, events, modals});
 
-export default createStore(reducers, applyMiddleware(thunk));
+export default createStore(reducers, {modals: { isShowing: false}}, applyMiddleware(thunk));
