@@ -3,29 +3,14 @@ import {connect} from 'react-redux';
 import {hideModal} from '../actions/modals'
 import {reduxForm, Field} from 'redux-form';
 import {required, nonEmpty} from '../validators';
-import {fetchPosts} from '../actions/post-list'
-import { API_BASE_URL } from '../config';
-
-//import {} from '../action/bottom-nav';
+import {addPost, fetchPosts} from '../actions/post-list'
 
 import './add-post-form.css';
 
 export class AddPostForm extends React.Component {
     onSubmit(values) {
-        return fetch(`${API_BASE_URL}/posts`,{
-        method: 'POST',
-        body: JSON.stringify(values),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-        })
-        .then(res => !res.ok ? Promise.reject(res.statusText) : res.json())
-        .then(this.props.dispatch(fetchPosts()))
-        .then(this.props.dispatch(hideModal()))
-        .catch(err => console.log(err))
-        //console.log(values);
-        //props.dispatch(addPost(values))
-        //this.props.dispatch(hideModal())
+        this.props.dispatch(addPost(values));
+        this.props.dispatch(hideModal());
     }
     render() {
     return (
@@ -44,11 +29,8 @@ export class AddPostForm extends React.Component {
     );
 }}
 
-const mapDispatchToProps = () => {
-    return {
-      hideModal: hideModal,
-      fetchPosts: fetchPosts
-    }
-}
+let x = reduxForm({form: 'contact'})(AddPostForm);
 
-export default reduxForm({form: 'contact'})(AddPostForm);
+x = connect()(x);
+
+export default x;

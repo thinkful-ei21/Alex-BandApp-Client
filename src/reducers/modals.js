@@ -9,7 +9,8 @@ export default function modals(state = {
     case SHOW_MODAL:
       return Object.assign({}, state, {
         isShowing: true,
-        page: action.page
+        page: action.page,
+        id: action.id
       })
     case HIDE_MODAL:
       return Object.assign({}, state, {

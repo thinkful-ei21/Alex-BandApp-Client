@@ -15,7 +15,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
         </header>
-        <button className="btn" onClick={() => this.props.dispatch(showModal())}>Enter your name</button>
+        <button className="btn" onClick={() => this.props.dispatch(showModal("add-post-form"))}>Enter your name</button>
         <Modal  />
         <Home />
         

@@ -1,10 +1,11 @@
 export const SHOW_MODAL = 'SHOW_MODAL'
 export const HIDE_MODAL = 'HIDE_MODAL'
 
-export function showModal(page) {
+export function showModal(page, id) {
   return {
     type: SHOW_MODAL,
-    page
+    page,
+    id
   }
 }
 

@@ -2,7 +2,11 @@
 import {
     POST_REQUEST,
     POST_SUCCESS,
-    POST_ERROR
+    POST_ERROR,
+    ADD_POST_REQUEST,
+    ADD_POST_SUCCESS,
+    DELETE_POST_REQUEST,
+    DELETE_POST_SUCCESS
 } from '../actions/post-list'
 
 const initialState = {
@@ -23,6 +27,22 @@ export default function reducer(state = initialState, action) {
     else if (action.type === POST_ERROR) {
 
         return {...state, error:action.error, loading:false}
+    }
+    else if (action.type === ADD_POST_REQUEST) {
+
+        return {...state, loading:true}
+    }
+    else if (action.type === ADD_POST_SUCCESS) {
+
+        return {...state, error: null, loading:false }
+    }
+    else if (action.type === DELETE_POST_REQUEST) {
+
+        return {...state, loading:true}
+    }
+    else if (action.type === DELETE_POST_SUCCESS) {
+
+        return {...state, error: null, loading:false }
     }
     
     return state;

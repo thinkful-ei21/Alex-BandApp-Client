@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {fetchPosts} from '../actions/post-list'
+import {showModal} from '../actions/modals'
 
 import './post-list.css';
 
@@ -12,15 +13,15 @@ export class PostList extends React.Component {
     }
 
     render(){
-        //console.log(this.props)
-        //this.props.dispatch(testing())
 
         return(
             <div className="post-list-container">
             <h1 className="post-list-header">Recent Posts</h1>
             <ul >{this.props.posts.map((item, index) =>{
                 return (
-                    <li className="post-list-item" key={index}>{item.message}
+                    <li className="post-list-item" key={index}>
+                    <h2>{item.message}</h2>
+                    <button onClick={() => this.props.dispatch(showModal("delete-post", item.id))}>Delete</button>
                     <img className="post-media" src={item.mediaUrl}/>
                     </li>
                 )
@@ -35,5 +36,6 @@ const mapStateToProps = state => ({
       posts:state.posts.posts,
     
   });
+
 
 export default connect(mapStateToProps)(PostList);

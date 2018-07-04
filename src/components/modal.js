@@ -1,9 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import AddPostForm from './add-post-form'
+import DeletePostForm from './delete-post-confirm'
+
 import './modal.css'
 
 class Modal extends Component {
+  setPage() {
+    if (this.props.page === 'add-post-form'){
+      return <AddPostForm />
+    } 
+    else if (this.props.page === 'delete-post'){
+      return <DeletePostForm id={this.props.id}/> 
+    }
+  }
   render() {
 
     return (
@@ -12,7 +22,7 @@ class Modal extends Component {
           <div>
             <div className="modal-backdrop"></div>
             <div className="confirm-modal-content">
-            <AddPostForm />  
+            {this.setPage()} 
             </div>
           </div>
         }
@@ -24,7 +34,9 @@ class Modal extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    isShowing: state.modals.isShowing
+    isShowing: state.modals.isShowing,
+    page: state.modals.page,
+    id: state.modals.id
   }
 }
 

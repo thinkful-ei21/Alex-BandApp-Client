@@ -7,12 +7,8 @@ import './feeds.css';
 export default function Feeds(props) {
   return (
     <div className="feeds">
-      
       <PostList />
-      
-      
       <EventList />
-      
     </div>
   );
 }
