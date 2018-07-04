@@ -1,21 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import AddPostForm from './add-post-form'
 import './modal.css'
 
-class ConfirmModal extends Component {
+class Modal extends Component {
   render() {
-    let { message, onCancel, isShowing } = this.props
 
     return (
-      <div className="confirm-modal">
-        { isShowing &&
+      <div className="modal">
+        { this.props.isShowing &&
           <div>
             <div className="modal-backdrop"></div>
             <div className="confirm-modal-content">
-              <span className="confirm-modal-message">{message}</span>
-              <input className="confirm-modal-input" type="text" ref={(_ref) => this.confirmInput = _ref}/>
-              <button className="btn" onClick={() => this.getTextAndConfirm()}>OK</button>
-              <button className="btn" onClick={() => onCancel()}>Cancel</button>
+            <AddPostForm />  
             </div>
           </div>
         }
@@ -23,17 +20,12 @@ class ConfirmModal extends Component {
     )
   }
 
-  getTextAndConfirm() {
-    let text = this.confirmInput.value
-    this.props.onConfirm(text)
-  }
-
 }
 
-const mapStateToComponent = (state) => {
+const mapStateToProps = (state) => {
   return {
     isShowing: state.modals.isShowing
   }
 }
 
-export default connect(mapStateToComponent)(ConfirmModal)
+export default connect(mapStateToProps)(Modal)

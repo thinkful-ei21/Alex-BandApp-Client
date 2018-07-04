@@ -1,11 +1,10 @@
 export const SHOW_MODAL = 'SHOW_MODAL'
 export const HIDE_MODAL = 'HIDE_MODAL'
-export const SET_NAME = 'SET_NAME'
 
-export function showModal(message) {
+export function showModal(page) {
   return {
     type: SHOW_MODAL,
-    message
+    page
   }
 }
 
@@ -15,17 +14,3 @@ export function hideModal() {
   }
 }
 
-// export function setName(name) {
-//   return {
-//     type: SET_NAME,
-//     name
-//   }
-// }
-
-// export function setNameAndHideModal(name) {
-//   return dispatch => {
-//     if (!name || name.trim() === '') return
-//     dispatch(setName(name))
-//     dispatch(hideModal())
-//   }
-// }

@@ -1,15 +1,15 @@
-import {SHOW_MODAL, HIDE_MODAL, SET_NAME} from '../actions/modals'
+import {SHOW_MODAL, HIDE_MODAL} from '../actions/modals'
 
 export default function modals(state = {
   isShowing: false,
-  message: ''
+  page: ''
 }, action) {
 
   switch (action.type) {
     case SHOW_MODAL:
       return Object.assign({}, state, {
         isShowing: true,
-        message: action.message
+        page: action.page
       })
     case HIDE_MODAL:
       return Object.assign({}, state, {

@@ -1,6 +1,5 @@
 import { API_BASE_URL } from '../config';
 
-
 export const POST_REQUEST = 'POST_REQUEST'
 export const fetchPostsRequest = () =>({
     type: POST_REQUEST
@@ -25,3 +24,4 @@ export const fetchPosts = () => dispatch =>{
     .then(res => dispatch(fetchPostsSuccess(res)))
     .catch(err => dispatch(fetchPostsError(err)))
 }
+

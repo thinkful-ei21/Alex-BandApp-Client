@@ -25,6 +25,5 @@ export default function reducer(state = initialState, action) {
         return {...state, error:action.error, loading:false}
     }
     
-    
     return state;
   }
