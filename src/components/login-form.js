@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {hideModal} from '../actions/modals'
 import {reduxForm, Field} from 'redux-form';
 import {required, nonEmpty} from '../validators';
-import {addPost} from '../actions/post-list'
+import {addPost, fetchPosts} from '../actions/post-list'
 
 import './add-post-form.css';
 
@@ -23,7 +23,7 @@ export class AddPostForm extends React.Component {
             <Field name="message" id="message" type="text" component="input" validate={[required, nonEmpty]}/>
             <label htmlFor="mediaUrl">Media URL</label>
             <Field name="mediaUrl" id="mediaUrl" type="text" component="input" />
-            <button className="btn" type="submit">OK</button>
+            <button className="btn" type="submit">Login</button>
             <button className="btn" onClick={() => this.props.dispatch(hideModal())}>Cancel</button>
         </form>
     );

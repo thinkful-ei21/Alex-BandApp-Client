@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import AddPostForm from './add-post-form'
 import DeletePostForm from './delete-post-confirm'
+import EditPostForm from './edit-post-form'
 
 import './modal.css'
 
@@ -12,6 +13,9 @@ class Modal extends Component {
     } 
     else if (this.props.page === 'delete-post'){
       return <DeletePostForm id={this.props.id}/> 
+    }
+    else if (this.props.page === 'edit-post'){
+      return <EditPostForm id={this.props.id}/> 
     }
   }
   render() {

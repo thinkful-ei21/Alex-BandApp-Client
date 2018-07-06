@@ -17,11 +17,13 @@ export class PostList extends React.Component {
         return(
             <div className="post-list-container">
             <h1 className="post-list-header">Recent Posts</h1>
+            <button className="btn" onClick={() => this.props.dispatch(showModal("add-post-form"))}>Add Post</button>
             <ul >{this.props.posts.map((item, index) =>{
                 return (
                     <li className="post-list-item" key={index}>
                     <h2>{item.message}</h2>
                     <button onClick={() => this.props.dispatch(showModal("delete-post", item.id))}>Delete</button>
+                    <button onClick={() => this.props.dispatch(showModal("edit-post", item.id))}>Edit</button>
                     <img className="post-media" src={item.mediaUrl}/>
                     </li>
                 )
