@@ -64,7 +64,7 @@ export const deletePost = (id) => dispatch =>{
     fetch(`${API_BASE_URL}/posts/${id}`,{
         method: 'DELETE'
         }
-    ).then(res => !res.ok ? Promise.reject(res.statusText) : res.json())
+    ).then(res => !res.ok ? Promise.reject(res.statusText) : undefined)
     .then(res => dispatch(deletePostSuccess()))
     .then(res => dispatch(fetchPosts()))
     .catch(err => dispatch(fetchPostsError(err)))
