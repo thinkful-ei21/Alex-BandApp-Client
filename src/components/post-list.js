@@ -15,10 +15,12 @@ export class PostList extends React.Component {
     render(){
 
         return(
-            <div className="post-list-container">
-            <h1 className="post-list-header">Recent Posts</h1>
+            
+            <div>
+            <div><h1 className="post-list-header">Recent Posts</h1></div>
+            <div  className="post-list-container">
             <button className="btn" onClick={() => this.props.dispatch(showModal("add-post-form"))}>Add Post</button>
-            <ul >{this.props.posts.map((item, index) =>{
+            <ul className="post-list-ul">{this.props.posts.map((item, index) =>{
                 return (
                     <li className="post-list-item" key={index}>
                     <h2>{item.message}</h2>
@@ -28,6 +30,7 @@ export class PostList extends React.Component {
                     </li>
                 )
             })}</ul>
+            </div>
             </div>
         )
     }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {fetchEvents} from '../actions/event-list'
+import {showModal} from '../actions/modals'
 
 import './event-list.css';
 
@@ -12,17 +13,26 @@ export class EventList extends React.Component {
     }
 
     render(){
-        //console.log(this.props)
-        //this.props.dispatch(testing())
-
         return(
-            <div className="events-list-container">
-            <h1 className="events-heaeder">Upcoming Events</h1>
+            <div>
+            <div><h1 className="event-header">Upcoming Events</h1></div>
+            <div className="event-list-container">
+            <button className="btn" onClick={() => this.props.dispatch(showModal("add-event-form"))}>Add Event</button>
             <ul>{this.props.events.map((item, index) =>{
+                console.log(item.location[0].name)
                 return (
-                    <li className="event-list-item" key={index}>{item.title}</li>
+                    <li className="event-list-item" key={index}>
+                    <h2>{item.title}</h2>
+                    <button onClick={() => this.props.dispatch(showModal("delete-event", item.id))}>Delete</button>
+                    <button onClick={() => this.props.dispatch(showModal("edit-event", item.id))}>Edit</button>
+                    <section><img className="event-media" src={item.picUrl}/></section>
+                    <p>{item.description}</p>
+                    <section><label>Location: </label><a>{item.location[0].name}</a></section>
+                    <section><label>Date: </label><a>{new Date(item.eventDate).toLocaleDateString()}</a></section>
+                    </li>
                 )
             })}</ul>
+            </div>
             </div>
         )
     }

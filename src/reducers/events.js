@@ -1,13 +1,22 @@
 import {
     EVENT_REQUEST,
     EVENT_SUCCESS,
-    EVENT_ERROR
+    EVENT_ERROR,
+    SINGLE_EVENT_REQUEST,
+    SINGLE_EVENT_SUCCESS,
+    ADD_EVENT_REQUEST,
+    ADD_EVENT_SUCCESS,
+    EDIT_EVENT_REQUEST,
+    EDIT_EVENT_SUCCESS,
+    DELETE_EVENT_REQUEST,
+    DELETE_EVENT_SUCCESS
 } from '../actions/event-list'
 
 const initialState = {
     events: [],
     loading: false,
-    error: null
+    error: null,
+    editEvent: {}
 }
 
 export default function reducer(state = initialState, action) {
@@ -22,6 +31,38 @@ export default function reducer(state = initialState, action) {
     else if (action.type === EVENT_ERROR) {
 
         return {...state, error:action.error, loading:false}
+    }
+    else if (action.type === SINGLE_EVENT_REQUEST) {
+
+        return {...state, loading:true}
+    }
+    else if (action.type === SINGLE_EVENT_SUCCESS) {
+
+        return {...state, editEvent: action.event, error: null, loading:false }
+    }
+    else if (action.type === ADD_EVENT_REQUEST) {
+
+        return {...state, loading:true}
+    }
+    else if (action.type === ADD_EVENT_SUCCESS) {
+
+        return {...state, error: null, loading:false }
+    }
+    else if (action.type === EDIT_EVENT_REQUEST) {
+
+        return {...state, loading:true}
+    }
+    else if (action.type === EDIT_EVENT_SUCCESS) {
+
+        return {...state, editPost: {}, error: null, loading:false }
+    }
+    else if (action.type === DELETE_EVENT_REQUEST) {
+
+        return {...state, loading:true}
+    }
+    else if (action.type === DELETE_EVENT_SUCCESS) {
+
+        return {...state, error: null, loading:false }
     }
     
     
