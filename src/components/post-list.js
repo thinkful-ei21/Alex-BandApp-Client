@@ -16,8 +16,8 @@ export class PostList extends React.Component {
 
         return(
             
-            <div>
-            <div><h1 className="post-list-header">Recent Posts</h1></div>
+            <div className="actual-post-list-container">
+            <h1 className="post-list-header">Recent Posts</h1>
             <div  className="post-list-container">
             {(() => { if (this.props.loggedIn) { 
                 return <button className="btn" onClick={() => this.props.dispatch(showModal("add-post-form"))}>Add Post</button>

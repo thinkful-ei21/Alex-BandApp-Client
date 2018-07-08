@@ -7,7 +7,7 @@ import './top-nav.css';
 
 export function TopNav(props) {
     return (
-        <nav>
+        <nav className="top-nav">
             <ul className="navList">
                 <li>
                     <a href="#" id="the-music" className="navLink" aria-label="Music Page">

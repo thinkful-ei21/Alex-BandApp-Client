@@ -8,7 +8,7 @@ import './bottom-nav.css';
 
 export function BottomNav(props) {
     return (
-        <nav>
+        <nav className="bottom-nav">
             <ul className="navList">
                 <li>
                     <a href="#" className="navLink" aria-label="link to facebook page">

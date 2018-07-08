@@ -14,13 +14,13 @@ export class EventList extends React.Component {
 
     render(){
         return(
-            <div>
-            <div><h1 className="event-header">Upcoming Events</h1></div>
+            <div className="actual-event-list-container">
+            <h1 className="event-header">Upcoming Events</h1>
             <div className="event-list-container">
             {(() => { if (this.props.loggedIn) { 
                 return <button className="btn" onClick={() => this.props.dispatch(showModal("add-event-form"))}>Add Event</button>
             }})()}
-            <ul>{this.props.events.map((item, index) =>{
+            <ul className="event-list-ul">{this.props.events.map((item, index) =>{
                 //console.log(item.location[0].name)
                 return (
                     <li className="event-list-item" key={index}>

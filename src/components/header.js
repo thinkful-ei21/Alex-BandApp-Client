@@ -7,7 +7,7 @@ import './header.css';
 export default function Header(props) {
   return (
     <header>
-    <h1>Artificial Stars Logo</h1>
+    <div><h1>Artificial Stars Logo</h1></div>
       <TopNav />
     </header>
   );

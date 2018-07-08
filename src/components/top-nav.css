@@ -1,4 +1,33 @@
 .navList {
-    display: inline-block;
+    overflow: hidden;
     list-style: none;
+    /* top: 75px; */
+    width: 100%;
+}
+
+/* The navigation bar */
+.top-nav {
+    overflow: hidden;
+    background-color: #333;
+    position: absolute; /* Set the navbar to fixed position */
+    top: 75px; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+}
+
+/* Links inside the navbar */
+.top-nav li {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-right: 1px solid #bbb;
+}
+
+.top-nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
 }
