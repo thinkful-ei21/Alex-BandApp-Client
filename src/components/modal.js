@@ -7,6 +7,7 @@ import AddEventForm from './add-event-form'
 import DeleteEventForm from './delete-event-confirm'
 import EditEventForm from './edit-event-form'
 import RegistrationPage from './login/registration-page'
+import LoginPage from './login/login-form'
 
 import './modal.css'
 
@@ -32,6 +33,9 @@ class Modal extends Component {
     }
     else if (this.props.page === 'registration-page'){
       return <RegistrationPage /> 
+    }
+    else if (this.props.page === 'login-page'){
+      return <LoginPage /> 
     }
   }
   render() {

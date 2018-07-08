@@ -3,6 +3,8 @@ import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
 import {login} from '../../actions/auth';
 import {required, nonEmpty} from '../../validators';
+import {hideModal} from '../../actions/modals'
+
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
@@ -44,6 +46,7 @@ export class LoginForm extends React.Component {
                 <button disabled={this.props.pristine || this.props.submitting}>
                     Log in
                 </button>
+                <button className="btn" onClick={() => this.props.dispatch(hideModal())}>Cancel</button>
             </form>
         );
     }

@@ -19,13 +19,19 @@ export class PostList extends React.Component {
             <div>
             <div><h1 className="post-list-header">Recent Posts</h1></div>
             <div  className="post-list-container">
-            <button className="btn" onClick={() => this.props.dispatch(showModal("add-post-form"))}>Add Post</button>
+            {(() => { if (this.props.loggedIn) { 
+                return <button className="btn" onClick={() => this.props.dispatch(showModal("add-post-form"))}>Add Post</button>
+            }})()}
             <ul className="post-list-ul">{this.props.posts.map((item, index) =>{
                 return (
                     <li className="post-list-item" key={index}>
                     <h2>{item.message}</h2>
-                    <button onClick={() => this.props.dispatch(showModal("delete-post", item.id))}>Delete</button>
-                    <button onClick={() => this.props.dispatch(showModal("edit-post", item.id))}>Edit</button>
+                    {(() => { if (this.props.loggedIn) { 
+                        return <button onClick={() => this.props.dispatch(showModal("delete-post", item.id))}>Delete</button>
+                    }})()}
+                    {(() => { if (this.props.loggedIn) { 
+                        return <button onClick={() => this.props.dispatch(showModal("edit-post", item.id))}>Edit</button>
+                    }})()}
                     <img className="post-media" src={item.mediaUrl}/>
                     </li>
                 )
@@ -39,7 +45,7 @@ export class PostList extends React.Component {
 
 const mapStateToProps = state => ({
       posts:state.posts.posts,
-    
+      loggedIn: state.auth.currentUser !== null
   });
 
 

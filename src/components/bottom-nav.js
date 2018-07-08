@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
-//import {} from '../action/bottom-nav';
+import {showModal} from '../actions/modals'
+import {clearAuth} from '../actions/auth';
+import {clearAuthToken} from '../local-storage';
 
 import './bottom-nav.css';
 
@@ -20,13 +21,22 @@ export function BottomNav(props) {
                     </a>
                 </li>
                 <li>
-                    <a href="#" className="navLink band-login" aria-label="Band login page">
-                        Band Login
-                    </a>
+                {(() => { if (props.loggedIn) { 
+                    return <button className="btn" onClick={() => {
+                        props.dispatch(clearAuth())
+                        clearAuthToken()
+                        }}>Logout</button>
+                }else {
+                    return <button className="btn" onClick={() => props.dispatch(showModal("login-page"))}>Band Login</button>
+                }})()}
                 </li>
             </ul>
         </nav>
     );
 }
 
-export default connect()(BottomNav);
+const mapStateToProps = state => ({
+    loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps)(BottomNav);
