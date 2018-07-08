@@ -6,6 +6,7 @@ import EditPostForm from './edit-post-form'
 import AddEventForm from './add-event-form'
 import DeleteEventForm from './delete-event-confirm'
 import EditEventForm from './edit-event-form'
+import RegistrationPage from './login/registration-page'
 
 import './modal.css'
 
@@ -28,6 +29,9 @@ class Modal extends Component {
     }
     else if (this.props.page === 'edit-event'){
       return <EditEventForm id={this.props.id}/> 
+    }
+    else if (this.props.page === 'registration-page'){
+      return <RegistrationPage /> 
     }
   }
   render() {
