@@ -74,13 +74,15 @@ export const fetchEvent = (id) => dispatch =>{
     .catch(err => dispatch(fetchEventsError(err)))
 }
 
-export const addEvent = (values) => dispatch =>{
+export const addEvent = (values) => (dispatch, getState) =>{
+    const authToken = getState().auth.authToken
     dispatch(addEventRequest())
     fetch(`${API_BASE_URL}/events`,{
         method: 'POST',
         body: JSON.stringify(values),
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${authToken}`
         }
     }).then(res => !res.ok ? Promise.reject(res.statusText) : res.json())
     .then(res => dispatch(addEventSuccess()))
@@ -88,10 +90,14 @@ export const addEvent = (values) => dispatch =>{
     .catch(err => dispatch(fetchEventsError(err)))
 }
 
-export const deleteEvent = (id) => dispatch =>{
+export const deleteEvent = (id) => (dispatch, getState) =>{
+    const authToken = getState().auth.authToken
     dispatch(deleteEventRequest())
     fetch(`${API_BASE_URL}/events/${id}`,{
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${authToken}`
+        }
         }
     ).then(res => !res.ok ? Promise.reject(res.statusText) : undefined)
     .then(res => dispatch(deleteEventSuccess()))
@@ -99,14 +105,15 @@ export const deleteEvent = (id) => dispatch =>{
     .catch(err => dispatch(fetchEventsError(err)))
 }
 
-export const editEvent = (id, values) => dispatch =>{
-    //console.log(id)
+export const editEvent = (id, values) => (dispatch, getState) =>{
+    const authToken = getState().auth.authToken
     dispatch(editEventRequest())
     fetch(`${API_BASE_URL}/events/${id}`,{
         method: 'PUT',
         body: JSON.stringify(values),
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${authToken}`
         }
     }).then(res => !res.ok ? Promise.reject(res.statusText) : undefined)
     .then(res => dispatch(editEventSuccess()))

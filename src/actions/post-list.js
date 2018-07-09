@@ -74,13 +74,15 @@ export const fetchPost = (id) => dispatch =>{
     .catch(err => dispatch(fetchPostsError(err)))
 }
 
-export const addPost = (values) => dispatch =>{
+export const addPost = (values) => (dispatch, getState) =>{
+    const authToken = getState().auth.authToken
     dispatch(addPostRequest())
     fetch(`${API_BASE_URL}/posts`,{
         method: 'POST',
         body: JSON.stringify(values),
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${authToken}`
         }
     }).then(res => !res.ok ? Promise.reject(res.statusText) : res.json())
     .then(res => dispatch(addPostSuccess()))
@@ -88,10 +90,14 @@ export const addPost = (values) => dispatch =>{
     .catch(err => dispatch(fetchPostsError(err)))
 }
 
-export const deletePost = (id) => dispatch =>{
+export const deletePost = (id) => (dispatch, getState) =>{
+    const authToken = getState().auth.authToken
     dispatch(deletePostRequest())
     fetch(`${API_BASE_URL}/posts/${id}`,{
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${authToken}`
+        }
         }
     ).then(res => !res.ok ? Promise.reject(res.statusText) : undefined)
     .then(res => dispatch(deletePostSuccess()))
@@ -99,14 +105,15 @@ export const deletePost = (id) => dispatch =>{
     .catch(err => dispatch(fetchPostsError(err)))
 }
 
-export const editPost = (id, values) => dispatch =>{
-    console.log(id)
+export const editPost = (id, values) => (dispatch, getState) =>{
+    const authToken = getState().auth.authToken
     dispatch(editPostRequest())
     fetch(`${API_BASE_URL}/posts/${id}`,{
         method: 'PUT',
         body: JSON.stringify(values),
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${authToken}`
         }
     }).then(res => !res.ok ? Promise.reject(res.statusText) : undefined)
     .then(res => dispatch(editPostSuccess()))

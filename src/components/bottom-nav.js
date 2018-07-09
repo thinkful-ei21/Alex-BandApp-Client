@@ -30,6 +30,9 @@ export function BottomNav(props) {
                     return <button className="btn" onClick={() => props.dispatch(showModal("login-page"))}>Band Login</button>
                 }})()}
                 </li>
+                <li>
+                    <button className="btn" onClick={() => props.dispatch(showModal("registration-page"))}>Registration Form</button>
+                </li>
             </ul>
         </nav>
     );
