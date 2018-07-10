@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TopNav from './top-nav';
+import TopNav from './nav/top-nav';
 
 import './header.css';
 

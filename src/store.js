@@ -6,10 +6,11 @@ import protectedDataReducer from './reducers/protected-data'
 import posts from './reducers/posts'
 import events from './reducers/events'
 import modals from './reducers/modals'
+import band from './reducers/band'
 import {reducer as formReducer} from 'redux-form'
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 
-const reducers = combineReducers({posts, events, modals, form: formReducer, auth: authReducer,
+const reducers = combineReducers({posts, band, events, modals, form: formReducer, auth: authReducer,
     protectedData: protectedDataReducer});
 const store = createStore(reducers, {modals: { isShowing: false}}, applyMiddleware(thunk));
 

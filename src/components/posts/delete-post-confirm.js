@@ -1,6 +1,6 @@
 import React from 'react';
-import {hideModal} from '../actions/modals'
-import {deletePost} from '../actions/post-list'
+import {hideModal} from '../../actions/modals'
+import {deletePost} from '../../actions/post-list'
 import {connect} from 'react-redux';
 import './delete-post-confirm.css';
 

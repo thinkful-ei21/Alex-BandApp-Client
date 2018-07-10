@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {showModal} from '../actions/modals'
 import Header from './header';
@@ -6,18 +5,21 @@ import Feeds from './feeds';
 import BottomNav from './nav/bottom-nav';
 import { connect } from 'react-redux';
 
-import './home.css'
+import './home-home.css'
 
-export function Home(props) {
+export function HomeHome(props) {
   return (
     <div className="home">
-      <Header />
       <main role="main">
-        <Feeds />
-        <BottomNav />
+        <div className="band-list">
+        <h1>Band List</h1>
+        </div>
+        <div className="register-band">
+        <button>register Band</button>
+        </div>
       </main>
     </div>
   );
 }
 
-export default connect()(Home);
+export default connect()(HomeHome);

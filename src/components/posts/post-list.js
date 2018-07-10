@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {fetchPosts} from '../actions/post-list'
-import {showModal} from '../actions/modals'
+import {fetchPostsByBand} from '../../actions/post-list'
+import {showModal} from '../../actions/modals'
 
 import './post-list.css';
 
@@ -9,9 +9,8 @@ export class PostList extends React.Component {
 
 
     componentDidMount(){
-        this.props.dispatch(fetchPosts())
+        this.props.dispatch(fetchPostsByBand(this.props.band[0]))
     }
-
     render(){
 
         return(
@@ -44,8 +43,9 @@ export class PostList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-      posts:state.posts.posts,
-      loggedIn: state.auth.currentUser !== null
+      posts: state.posts.posts,
+      loggedIn: state.auth.currentUser !== null,
+      band: state.band.band
   });
 
 

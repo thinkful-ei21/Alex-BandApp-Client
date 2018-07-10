@@ -66,6 +66,19 @@ export const fetchPosts = () => dispatch =>{
     .catch(err => dispatch(fetchPostsError(err)))
 }
 
+export const fetchPostsByBand = (band) => dispatch =>{
+    dispatch(fetchPostsRequest())
+    fetch(`${API_BASE_URL}/posts/byBand`, {
+        method: 'POST',
+        body: JSON.stringify(band),
+        headers: {
+            'Content-Type': 'application/json'
+        }})
+    .then(res => !res.ok ? Promise.reject(res.statusText) : res.json())
+    .then(res => dispatch(fetchPostsSuccess(res)))
+    .catch(err => dispatch(fetchPostsError(err)))
+}
+
 export const fetchPost = (id) => dispatch =>{
     dispatch(fetchPostRequest())
     fetch(`${API_BASE_URL}/posts/${id}`)

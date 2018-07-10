@@ -66,6 +66,19 @@ export const fetchEvents = () => dispatch =>{
     .catch(err => dispatch(fetchEventsError(err)))
 }
 
+export const fetchEventsByBand = (band) => dispatch =>{
+    dispatch(fetchEventsRequest())
+    fetch(`${API_BASE_URL}/events/byBand`, {
+        method: 'POST',
+        body: JSON.stringify(band),
+        headers: {
+            'Content-Type': 'application/json'
+        }})
+    .then(res => !res.ok ? Promise.reject(res.statusText) : res.json())
+    .then(res => dispatch(fetchEventsSuccess(res)))
+    .catch(err => dispatch(fetchEventsError(err)))
+}
+
 export const fetchEvent = (id) => dispatch =>{
     dispatch(fetchEventRequest())
     fetch(`${API_BASE_URL}/events/${id}`)

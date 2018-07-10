@@ -66,5 +66,6 @@ export default function reducer(state = initialState, action) {
         return {...state, error: null, loading:false }
     }
     
+    //console.log(state)
     return state;
   }

@@ -1,6 +1,6 @@
 import React from 'react';
-import {hideModal} from '../actions/modals'
-import {deleteEvent} from '../actions/event-list'
+import {hideModal} from '../../actions/modals'
+import {deleteEvent} from '../../actions/event-list'
 import {connect} from 'react-redux';
 import './delete-event-confirm.css';
 

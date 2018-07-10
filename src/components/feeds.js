@@ -1,7 +1,7 @@
 import React from 'react';
 
-import PostList from './post-list';
-import EventList from './event-list';
+import PostList from './posts/post-list';
+import EventList from './events/event-list';
 import './feeds.css';
 
 export default function Feeds(props) {

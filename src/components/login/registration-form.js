@@ -5,13 +5,15 @@ import {login} from '../../actions/auth';
 import {hideModal} from '../../actions/modals'
 import Input from './input';
 import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
+import {connect} from 'react-redux';
 const passwordLength = length({min: 6, max: 72});
 const matchesPassword = matches('password');
 
 export class RegistrationForm extends React.Component {
     onSubmit(values) {
         const {username, password, firstName, lastName} = values;
-        const user = {username, password, firstName, lastName};
+        console.log (this.props.band)
+        const user = {username, password, firstName, lastName, band: this.props.band[0].id};
         this.props.dispatch(registerUser(user))
         .then(() => this.props.dispatch(login(username, password)))
         this.props.dispatch(hideModal())
@@ -60,8 +62,17 @@ export class RegistrationForm extends React.Component {
     }
 }
 
-export default reduxForm({
+const mapStateToProps = state => 
+    ({
+    band:state.band.band,
+});
+
+let x = reduxForm({
     form: 'registration',
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('registration', Object.keys(errors)[0]))
 })(RegistrationForm);
+
+x = connect(mapStateToProps)(x);
+
+export default x;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {fetchEvents} from '../actions/event-list'
-import {showModal} from '../actions/modals'
+import {fetchEventsByBand} from '../../actions/event-list'
+import {showModal} from '../../actions/modals'
 
 import './event-list.css';
 
@@ -9,7 +9,7 @@ export class EventList extends React.Component {
 
 
     componentDidMount(){
-        this.props.dispatch(fetchEvents())
+        this.props.dispatch(fetchEventsByBand(this.props.band[0]))
     }
 
     render(){
@@ -47,7 +47,8 @@ export class EventList extends React.Component {
 
 const mapStateToProps = state => ({
       events:state.events.events,
-      loggedIn: state.auth.currentUser !== null
+      loggedIn: state.auth.currentUser !== null,
+      band: state.band.band
   });
 
 export default connect(mapStateToProps)(EventList);

@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {hideModal} from '../actions/modals'
+import {hideModal} from '../../actions/modals'
 import {reduxForm, Field} from 'redux-form';
-import {required, nonEmpty} from '../validators';
-import {editPost, fetchPost} from '../actions/post-list'
+import {required, nonEmpty} from '../../validators';
+import {editPost, fetchPost} from '../../actions/post-list'
 
 import './add-post-form.css';
 

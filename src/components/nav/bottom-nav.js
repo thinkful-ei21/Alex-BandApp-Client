@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {showModal} from '../actions/modals'
-import {clearAuth} from '../actions/auth';
-import {clearAuthToken} from '../local-storage';
+import {showModal} from '../../actions/modals'
+import {clearAuth} from '../../actions/auth';
+import {clearAuthToken} from '../../local-storage';
 
 import './bottom-nav.css';
 

@@ -7,23 +7,17 @@ import Modal from './components/modal'
 
 
 class App extends Component {
-
-
   render() {
     return (
-      
       <div className="App">
         <header className="App-header">
         </header>
-        <Modal  />
+        <Modal />
         <Home />
       </div>
-      
     );
   }
-  
 }
-
 const mapDispatchToProps = () => {
   return {
     showModal: showModal,

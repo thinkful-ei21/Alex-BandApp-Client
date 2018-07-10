@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {hideModal} from '../actions/modals'
+import {hideModal} from '../../actions/modals'
 import {reduxForm, Field} from 'redux-form';
-import {required, nonEmpty} from '../validators';
-import {editEvent, fetchEvent} from '../actions/event-list'
+import {required, nonEmpty} from '../../validators';
+import {editEvent, fetchEvent} from '../../actions/event-list'
 
 import './edit-event-form.css';
 
