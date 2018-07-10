@@ -1,9 +1,11 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
+import {registerBand} from '../../actions/band';
 import {registerUser} from '../../actions/users';
 import {login} from '../../actions/auth';
 import {hideModal} from '../../actions/modals'
 import Input from './input';
+import {fetchBand} from '../../actions/band';
 import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
 import {connect} from 'react-redux';
 const passwordLength = length({min: 6, max: 72});
@@ -11,20 +13,24 @@ const matchesPassword = matches('password');
 
 export class BandRegistrationForm extends React.Component {
     onSubmit(values) {
-        const {username, password, firstName, lastName} = values;
-        console.log (this.props.band)
-        const user = {username, password, firstName, lastName, band: this.props.band[0].id};
+        const {username, password, firstName, lastName, bandName, bandUrl} = values;
+        const newband = {username, bandName, bandUrl};
+        this.props.dispatch(registerBand(newband))
+        .then( (res)=> {
+        console.log(res)
+        const band = res.id
+        const user = {username, password, firstName, lastName, band}
         this.props.dispatch(registerUser(user))
-        .then(() => this.props.dispatch(login(username, password)))
+        .then(() => this.props.dispatch(login(username, password)))})
         this.props.dispatch(hideModal())
+        console.log(this.props.band)
     }
-
     render() {
         return (
             <form
                 className="login-form"
-                onSubmit={this.props.handleSubmit(values =>
-                    this.onSubmit(values)
+                onSubmit={this.props.handleSubmit(values =>{
+                    this.onSubmit(values)}
                 )}>
                 <label htmlFor="bandName">Band Name</label>
                 <Field component={Input} type="text" name="bandName" />
@@ -68,13 +74,13 @@ export class BandRegistrationForm extends React.Component {
 
 const mapStateToProps = state => 
     ({
-    band:state.band.band,
+    band: state.band.band,
 });
 
 let x = reduxForm({
-    form: 'registration',
+    form: 'band-registration',
     onSubmitFail: (errors, dispatch) =>
-        dispatch(focus('registration', Object.keys(errors)[0]))
+        dispatch(focus('band-registration', Object.keys(errors)[0]))
 })(BandRegistrationForm);
 
 x = connect(mapStateToProps)(x);

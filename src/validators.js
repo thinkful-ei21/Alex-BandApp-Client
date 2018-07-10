@@ -18,3 +18,26 @@ export const matches = field => (value, allValues) =>
         ? undefined
         : 'Does not match';
 
+// const userFetch = value => new Promise(fetch(`${API_BASE_URL}/users/checkExist`, {
+//     method: 'POST',
+//     headers: {
+//         'content-type': 'application/json'
+//     },
+//     body: JSON.stringify({username: value})
+//     })
+//     .then((res)=> res.json())
+// )
+
+// const existingUser = (value) => {
+//     console.log(value)
+//     return userFetch(value).then((res) => {
+//         if(res > 0){
+//              return "username is taken"
+//         }
+//     })
+// }
+
+// export default existingUser
+    
+   
+    
