@@ -12,6 +12,7 @@ export class EventList extends React.Component {
         this.props.dispatch(fetchEventsByBand(this.props.band[0]))
     }
 
+    
     render(){
         return(
             <div className="actual-event-list-container">
