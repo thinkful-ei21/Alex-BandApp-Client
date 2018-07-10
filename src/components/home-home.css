@@ -1,0 +1,29 @@
+.band-list {
+    width: 400px;
+    height: 600px;
+    display: inline-block;
+    border: solid black 2px;
+    overflow: hidden;
+    margin-right: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.register-band {
+    width: 400px;
+    height: 600px;
+    display: inline-block;
+    border: solid black 2px;
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.home {
+    text-align: center;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid black 2px;
+    /* position: relative; */
+}
