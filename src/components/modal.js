@@ -8,11 +8,13 @@ import DeleteEventForm from './events/delete-event-confirm'
 import EditEventForm from './events/edit-event-form'
 import RegistrationPage from './login/registration-page'
 import LoginPage from './login/login-form'
+import BandRegistrationPage from './login/band-registration-page'
 
 import './modal.css'
 
 class Modal extends Component {
   setPage() {
+    console.log(this.props.page)
     if (this.props.page === 'add-post-form'){
       return <AddPostForm />
     } 
@@ -37,6 +39,10 @@ class Modal extends Component {
     else if (this.props.page === 'login-page'){
       return <LoginPage /> 
     }
+    else if (this.props.page === 'band-registration-page'){
+      return <BandRegistrationPage /> 
+    }
+    
   }
   render() {
 

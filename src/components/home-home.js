@@ -1,13 +1,12 @@
 import React from 'react';
 import {showModal} from '../actions/modals'
-import Header from './header';
-import Feeds from './feeds';
 import BottomNav from './nav/bottom-nav';
 import { connect } from 'react-redux';
-
+import Modal from './modal'
 import './home-home.css'
 
-export function HomeHome(props) {
+export class HomeHome extends React.Component {
+  render(){
   return (
     <div className="home">
       <main role="main">
@@ -15,11 +14,12 @@ export function HomeHome(props) {
         <h1>Band List</h1>
         </div>
         <div className="register-band">
-        <button>register Band</button>
+        <button className="register-band-button btn" onClick={() => this.props.dispatch(showModal("band-registration-page"))}>Register Band</button>
         </div>
+        <Modal />
       </main>
     </div>
   );
-}
+}}
 
 export default connect()(HomeHome);

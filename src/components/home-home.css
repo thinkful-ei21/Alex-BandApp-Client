@@ -17,6 +17,8 @@
     overflow: hidden;
     margin-top: 30px;
     margin-bottom: 30px;
+    /* vertical-align: middle; */
+    
 }
 
 .home {
@@ -26,4 +28,10 @@
     margin-right: auto;
     border: solid black 2px;
     /* position: relative; */
+}
+
+.register-band-button {
+    font-size: 30px;
+    display: inline-block;
+    margin-top: 60%;   
 }

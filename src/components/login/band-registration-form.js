@@ -28,7 +28,7 @@ export class BandRegistrationForm extends React.Component {
                 )}>
                 <label htmlFor="bandName">Band Name</label>
                 <Field component={Input} type="text" name="bandName" />
-                <label htmlFor="bandUrl">Last name</label>
+                <label htmlFor="bandUrl">Band URL</label>
                 <Field component={Input} type="text" name="bandUrl" />
                 <label htmlFor="firstName">First name</label>
                 <Field component={Input} type="text" name="firstName" />
@@ -75,7 +75,7 @@ let x = reduxForm({
     form: 'registration',
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('registration', Object.keys(errors)[0]))
-})(RegistrationForm);
+})(BandRegistrationForm);
 
 x = connect(mapStateToProps)(x);
 
