@@ -3,7 +3,9 @@ import {Field, reduxForm, focus} from 'redux-form';
 import {registerUser} from '../../actions/users';
 import {login} from '../../actions/auth';
 import {hideModal} from '../../actions/modals'
+import asyncValidate from './asyncValidate'
 import Input from './input';
+import validate from './validate'
 import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
 import {connect} from 'react-redux';
 const passwordLength = length({min: 6, max: 72});
@@ -69,6 +71,9 @@ const mapStateToProps = state =>
 
 let x = reduxForm({
     form: 'registration',
+    validate,
+    asyncValidate,
+    asyncBlurFields: ['username'],
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('registration', Object.keys(errors)[0]))
 })(RegistrationForm);

@@ -5,6 +5,8 @@ import {registerUser} from '../../actions/users';
 import {login} from '../../actions/auth';
 import {hideModal} from '../../actions/modals'
 import Input from './input';
+import asyncValidate from './asyncValidate'
+import validate from './validate'
 import {fetchBand} from '../../actions/band';
 import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
 import {connect} from 'react-redux';
@@ -12,6 +14,9 @@ const passwordLength = length({min: 6, max: 72});
 const matchesPassword = matches('password');
 
 export class BandRegistrationForm extends React.Component {
+    handleChange(){
+        // console.log("triggered")
+    }
     onSubmit(values) {
         const {username, password, firstName, lastName, bandName, bandUrl} = values;
         const newband = {username, bandName, bandUrl};
@@ -27,8 +32,7 @@ export class BandRegistrationForm extends React.Component {
     }
     render() {
         return (
-            <form
-                className="login-form"
+            <form onChange={this.handleChange()}
                 onSubmit={this.props.handleSubmit(values =>{
                     this.onSubmit(values)}
                 )}>
@@ -45,7 +49,9 @@ export class BandRegistrationForm extends React.Component {
                     component={Input}
                     type="text"
                     name="username"
-                    validate={[required, nonEmpty, isTrimmed]}
+                    validate={[required, nonEmpty, isTrimmed]
+                    }
+
                 />
                 <label htmlFor="password">Password</label>
                 <Field
@@ -79,6 +85,9 @@ const mapStateToProps = state =>
 
 let x = reduxForm({
     form: 'band-registration',
+    validate,
+    asyncValidate,
+    asyncBlurFields: ['username'],
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('band-registration', Object.keys(errors)[0]))
 })(BandRegistrationForm);

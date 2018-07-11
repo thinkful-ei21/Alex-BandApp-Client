@@ -1,15 +1,12 @@
-.bottom_nav {
-    text-align: center;
-}
 
-.navList{
-    padding-left: 0;
-}
 .navList {
     overflow: hidden;
     list-style: none;
-    /* top: 75px; */
     width: 100%;
+    padding-left: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
 }
 
 /* The navigation bar */
@@ -19,17 +16,32 @@
     position: absolute; /* Set the navbar to fixed position */
     bottom: 0px; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
+    height: 50px;
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
 }
 
 /* Links inside the navbar */
-.bottom-nav li {
-    float: left;
-    display: block;
+.bottom-nav-li {
+    /* float: left; */
+    display: inline-block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px;
     text-decoration: none;
-    border-right: 1px solid #bbb;
+    border-right: 2px solid white;
+    cursor: pointer;
+}
+
+.bottom-nav-first-child {
+    border-left: 2px solid white;
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    border-right: 2px solid white;
+    cursor: pointer;
 }
 
 .bottom-nav a {
@@ -37,4 +49,8 @@
     color: white;
     text-align: center;
     text-decoration: none;
+}
+
+.inline-div {
+    display: inline-block
 }

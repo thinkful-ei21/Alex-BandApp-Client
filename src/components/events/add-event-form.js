@@ -4,6 +4,7 @@ import {hideModal} from '../../actions/modals'
 import {reduxForm, Field} from 'redux-form';
 import {required, nonEmpty} from '../../validators';
 import {addEvent} from '../../actions/event-list'
+import Input from '../login/input';
 
 import './add-event-form.css';
 
@@ -18,19 +19,19 @@ export class AddEventForm extends React.Component {
         onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values))}
         className="event-form">
-            <h1>Add Post</h1>
+            <h1>Add Event</h1>
             <label htmlFor="title">Title</label>
-            <Field name="title" id="title" type="text" component="input" validate={[required, nonEmpty]}/>
+            <Field name="title" id="title" type="text" component={Input} validate={[required, nonEmpty]}/>
             <label htmlFor="picUrl">Pic URL</label>
-            <Field name="picUrl" id="picUrl" type="text" initial component="input" />
+            <Field name="picUrl" id="picUrl" type="text" initial component={Input} />
             <label htmlFor="description">Description</label>
-            <Field name="description" id="description" type="description" initial component="input" />
+            <Field name="description" id="description" type="description" initial component={Input} />
             <label htmlFor="eventDate">Event Date</label>
-            <Field name="eventDate" id="eventDate" type="eventDate" initial component="input" />
+            <Field name="eventDate" id="eventDate" type="eventDate" initial component={Input} />
             <label htmlFor="location">Location</label>
-            <Field name="location" id="location" type="location" initial component="input" />
-            <button className="btn" type="submit">OK</button>
-            <button className="btn" onClick={() => this.props.dispatch(hideModal())}>Cancel</button>
+            <Field name="location" id="location" type="location" initial component={Input} />
+            <button className="add-event-submit-button" type="submit">OK</button>
+            <button className="add-event-cancel-button" onClick={() => this.props.dispatch(hideModal())}>Cancel</button>
         </form>
     );
 }}

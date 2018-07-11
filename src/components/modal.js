@@ -9,6 +9,7 @@ import EditEventForm from './events/edit-event-form'
 import RegistrationPage from './login/registration-page'
 import LoginPage from './login/login-form'
 import BandRegistrationPage from './login/band-registration-page'
+import ComingSoon from './coming-soon'
 
 import './modal.css'
 
@@ -41,6 +42,9 @@ class Modal extends Component {
     }
     else if (this.props.page === 'band-registration-page'){
       return <BandRegistrationPage /> 
+    }
+    else if (this.props.page === 'coming-soon'){
+      return <ComingSoon /> 
     }
     
   }

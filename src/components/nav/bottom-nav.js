@@ -10,29 +10,32 @@ export function BottomNav(props) {
     return (
         <nav className="bottom-nav">
             <ul className="navList">
-                <li>
-                    <a href="#" className="navLink" aria-label="link to facebook page">
+                <li className="bottom-nav-first-child">
+                    <span  className="navLink" aria-label="link to facebook page" >
                         Facebook
-                    </a>
+                    </span>
                 </li>
-                <li>
-                    <a href="#" className="navLink" aria-label="link to twitter page">
+                <li className="bottom-nav-li">
+                    <span className="navLink" aria-label="link to twitter page">
                         Twitter
-                    </a>
+                    </span>
                 </li>
-                <li>
                 {(() => { if (props.loggedIn) { 
-                    return <button className="btn" onClick={() => {
+                    return <div className="inline-div"><li className="bottom-nav-li">
+                        <span className="btn" onClick={() => {
                         props.dispatch(clearAuth())
                         clearAuthToken()
-                        }}>Logout</button>
-                }else {
-                    return <button className="btn" onClick={() => props.dispatch(showModal("login-page"))}>Band Login</button>
+                        }}>Logout</span>
+                        </li>
+                        <li className="bottom-nav-li">
+                        <span  className="navLink" onClick={() => props.dispatch(showModal("registration-page"))}>Register Band Member</span>
+                    </li></div>
+                    }
+                    else {
+                    return <li className="bottom-nav-li">
+                        <span  className="navLink" onClick={() => props.dispatch(showModal("login-page"))}>Band Login</span>
+                        </li>
                 }})()}
-                </li>
-                <li>
-                    <button className="btn" onClick={() => props.dispatch(showModal("registration-page"))}>Registration Form</button>
-                </li>
             </ul>
         </nav>
     );

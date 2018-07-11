@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {showModal} from '../../actions/modals'
 
 //import {} from '../action/top-nav';
 
@@ -10,34 +11,34 @@ export function TopNav(props) {
         <nav className="top-nav">
             <ul className="navList">
                 <li>
-                    <a href="#" id="the-music" className="navLink" aria-label="Music Page">
+                    <span onClick={() => props.dispatch(showModal("coming-soon"))} id="the-music" className="navLink" aria-label="Music Page">
                         The Music
-                    </a>
+                    </span>
                 </li>
                 <li>
-                    <a href="#" className="navLink" aria-label="About the band">
+                    <span onClick={() => props.dispatch(showModal("coming-soon"))} className="navLink" aria-label="About the band">
                         About The Band
-                    </a>
+                    </span>
                 </li>
                 <li>
-                    <a href="#" className="navLink" aria-label="Calendar page">
+                    <span onClick={() => props.dispatch(showModal("coming-soon"))} className="navLink" aria-label="Calendar page">
                         Calendar
-                    </a>
+                    </span>
                 </li>
                 <li>
-                    <a href="#" className="navLink" aria-label="Pictures Page">
+                    <span onClick={() => props.dispatch(showModal("coming-soon"))} className="navLink" aria-label="Pictures Page">
                         Pics
-                    </a>
+                    </span>
                 </li>
                 <li>
-                    <a href="#" className="navLink" aria-label="Video Page">
+                    <span onClick={() => props.dispatch(showModal("coming-soon"))} className="navLink" aria-label="Video Page">
                         Videos
-                    </a>
+                    </span>
                 </li>
                 <li>
-                    <a href="#" className="navLink" aria-label="Connect Page">
+                    <span onClick={() => props.dispatch(showModal("coming-soon"))} className="navLink" aria-label="Connect Page">
                         Connect
-                    </a>
+                    </span>
                 </li>
             </ul>
         </nav>

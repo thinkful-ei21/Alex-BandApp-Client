@@ -5,6 +5,7 @@
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 8px;
+    background-color: whitesmoke;
 }
 
 .event-list-container {
@@ -14,6 +15,7 @@
     min-height: 600px;
     overflow-y: scroll;
     border: solid black 2px;
+    background-color: slategray;
 }
 
 .actual-event-list-container{
