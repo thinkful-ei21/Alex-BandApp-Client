@@ -1,13 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
 
 import BandRegistrationForm from './band-registration-form';
+
+import './band-reg-page.css'
 
 export function BandRegistrationPage(props) {
     
     return (
-        <div className="home">
+        <div className="home band-reg-page">
             <h2>Register New Band</h2>
             <BandRegistrationForm />
             {/* <Link to="/">Login</Link> */}

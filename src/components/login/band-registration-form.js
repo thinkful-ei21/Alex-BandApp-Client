@@ -7,7 +7,6 @@ import {hideModal} from '../../actions/modals'
 import Input from './input';
 import asyncValidate from './asyncValidate'
 import validate from './validate'
-import {fetchBand} from '../../actions/band';
 import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
 import {connect} from 'react-redux';
 const passwordLength = length({min: 6, max: 72});

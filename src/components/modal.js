@@ -10,12 +10,12 @@ import RegistrationPage from './login/registration-page'
 import LoginPage from './login/login-form'
 import BandRegistrationPage from './login/band-registration-page'
 import ComingSoon from './coming-soon'
+import {setEventEditIndex} from '../actions/event-list'
 
 import './modal.css'
 
 class Modal extends Component {
   setPage() {
-    console.log(this.props.page)
     if (this.props.page === 'add-post-form'){
       return <AddPostForm />
     } 
@@ -32,6 +32,7 @@ class Modal extends Component {
       return <DeleteEventForm id={this.props.id}/> 
     }
     else if (this.props.page === 'edit-event'){
+      this.props.dispatch(setEventEditIndex(this.props.id))
       return <EditEventForm id={this.props.id}/> 
     }
     else if (this.props.page === 'registration-page'){

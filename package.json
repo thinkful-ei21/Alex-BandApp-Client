@@ -4,7 +4,10 @@
   "private": true,
   "dependencies": {
     "jwt-decode": "^2.2.0",
+    "material-ui": "^0.20.1",
+    "moment": "^2.22.2",
     "react": "^16.4.1",
+    "react-datepicker": "^1.5.0",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
     "react-redux-modal": "^0.5.2",
@@ -12,6 +15,7 @@
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
     "redux-form": "^7.4.2",
+    "redux-form-material-ui": "^4.3.4",
     "redux-modal-container": "^0.3.0",
     "redux-thunk": "^2.3.0",
     "semantic-ui-react": "^0.81.3"

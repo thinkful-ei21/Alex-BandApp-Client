@@ -1,20 +1,23 @@
 .navList {
-    overflow: hidden;
+    
     list-style: none;
     /* top: 75px; */
     width: 100%;
     text-align: center;
+    min-width: 750px;
+    
 }
 
 /* The navigation bar */
 .top-nav {
-    overflow: hidden;
+    overflow: auto;
     background-color: #333;
     position: absolute; /* Set the navbar to fixed position */
     top: 75px; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
     font-family: 'Righteous', cursive;
     font-size: 20px;
+    white-space: nowrap;
     
 }
 
@@ -29,14 +32,15 @@
     border-right: 2px solid white;
     display: inline-block;
     cursor: pointer;
+    
 }
 
 .top-nav li:first-child {
     border-left: 2px solid white;
 }
 
-.top-nav a {
-    display: block;
+.top-nav span {
+    display: inline-block;
     color: white;
     text-align: center;
     text-decoration: none;

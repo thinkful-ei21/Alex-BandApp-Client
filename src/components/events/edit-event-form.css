@@ -1,0 +1,50 @@
+.event-form {
+    width: 400px;
+    height: 400px;
+    border: dotted cadetblue 3px;
+    text-align: center;
+}
+
+.edit-event-submit-button{
+    font-size: 20px;
+    margin-right: 20px;
+    margin-top: 75px;
+    width: 80px;
+}
+
+.edit-event-cancel-button{
+    font-size: 20px;
+    width: 80px;
+}
+
+.edit-event-form-fields {
+    margin-left: 5px;
+}
+
+.edit-event-form-section {
+    padding: 5px;
+    width: 100%;
+}
+
+.event-date {
+    
+    width: 35px;
+    height: 20px;
+    /* display: inline-block;
+    text-align: top; */
+}
+
+.event-date-label {
+    display: inline-block;
+}
+
+.edit-event-date-form-section {
+    padding: 5px;
+    width: 60%;
+
+}
+
+.edit-div {
+    display: inline-block;
+    border: solid black 3 px;
+}

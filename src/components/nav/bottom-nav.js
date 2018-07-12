@@ -20,7 +20,7 @@ export function BottomNav(props) {
                         Twitter
                     </span>
                 </li>
-                {(() => { if (props.loggedIn) { 
+                {(() => { if (props.loggedIn && props.currentBandUser) { 
                     return <div className="inline-div"><li className="bottom-nav-li">
                         <span className="btn" onClick={() => {
                         props.dispatch(clearAuth())
@@ -42,7 +42,8 @@ export function BottomNav(props) {
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
+    loggedIn: state.auth.currentUser !== null,
+    currentBandUser: state.auth.currentUser !== null && state.band.band[0].id === state.auth.currentUser.band[0] ? true : false
 });
 
 export default connect(mapStateToProps)(BottomNav);

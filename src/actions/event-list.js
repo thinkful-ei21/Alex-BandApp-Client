@@ -58,6 +58,12 @@ export const fetchEventsError = (error) =>({
     error
 })
 
+export const SET_EVENT_EDIT_INDEX = 'SET_EVENT_EDIT_INDEX'
+export const setEventEditIndex = (index) =>({
+    type: SET_EVENT_EDIT_INDEX,
+    index
+})
+
 export const fetchEvents = () => dispatch =>{
     dispatch(fetchEventsRequest())
     fetch(`${API_BASE_URL}/events`)
@@ -80,24 +86,44 @@ export const fetchEventsByBand = (band) => dispatch =>{
 }
 
 export const fetchEvent = (id) => dispatch =>{
+    let x = {}
     dispatch(fetchEventRequest())
     fetch(`${API_BASE_URL}/events/${id}`)
     .then(res => !res.ok ? Promise.reject(res.statusText) : res.json())
-    .then(res => dispatch(fetchEventSuccess(res)))
+    .then(res => {
+        x = res
+        console.log(res.location[0])
+        return res
+    })
+    .then(res => { return fetch(`${API_BASE_URL}/locations/${res.location[0]}`)})
+    .then(res =>  res.json())
+    .then(res => { console.log(res)
+         x = {...x, locationName: res.name}
+         
+    })
+    .then(res => dispatch(fetchEventSuccess(x)))
     .catch(err => dispatch(fetchEventsError(err)))
 }
 
 export const addEvent = (values) => (dispatch, getState) =>{
     const authToken = getState().auth.authToken
     dispatch(addEventRequest())
-    fetch(`${API_BASE_URL}/events`,{
+    fetch(`${API_BASE_URL}/locations/search/${values.location}`, {
+        method: 'POST'
+    })
+    .then(res => res.json())
+    .then(res => {
+        console.log(res)
+        values.location = res[0].id})
+    .then(res => {return fetch(`${API_BASE_URL}/events`,{
         method: 'POST',
         body: JSON.stringify(values),
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${authToken}`
         }
-    }).then(res => !res.ok ? Promise.reject(res.statusText) : res.json())
+    })})
+    .then(res => !res.ok ? Promise.reject(res.statusText) : res.json())
     .then(res => dispatch(addEventSuccess()))
     .then(res => dispatch(fetchEvents()))
     .catch(err => dispatch(fetchEventsError(err)))
@@ -119,16 +145,26 @@ export const deleteEvent = (id) => (dispatch, getState) =>{
 }
 
 export const editEvent = (id, values) => (dispatch, getState) =>{
+    console.log(values)
     const authToken = getState().auth.authToken
     dispatch(editEventRequest())
-    fetch(`${API_BASE_URL}/events/${id}`,{
+    fetch(`${API_BASE_URL}/locations/search/${values.location}`, {
+        method: 'POST'
+    })
+    .then(res =>  res.json())
+    .then(res => {
+        values.location = res[0].id
+        
+    })
+    .then(res => {return fetch(`${API_BASE_URL}/events/${id}`,{
         method: 'PUT',
         body: JSON.stringify(values),
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${authToken}`
         }
-    }).then(res => !res.ok ? Promise.reject(res.statusText) : undefined)
+    })})
+    .then(res => !res.ok ? Promise.reject(res.statusText) : undefined)
     .then(res => dispatch(editEventSuccess()))
     .then(res => dispatch(fetchEvents()))
     .catch(err => dispatch(fetchEventsError(err)))

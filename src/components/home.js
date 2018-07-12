@@ -1,6 +1,4 @@
-
 import React from 'react';
-import {showModal} from '../actions/modals'
 import Header from './header';
 import Feeds from './feeds';
 import BottomNav from './nav/bottom-nav';

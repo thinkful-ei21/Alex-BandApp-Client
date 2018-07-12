@@ -9,14 +9,16 @@ import {
     EDIT_EVENT_REQUEST,
     EDIT_EVENT_SUCCESS,
     DELETE_EVENT_REQUEST,
-    DELETE_EVENT_SUCCESS
+    DELETE_EVENT_SUCCESS,
+    SET_EVENT_EDIT_INDEX
 } from '../actions/event-list'
 
 const initialState = {
     events: [],
     loading: false,
     error: null,
-    editEvent: {}
+    editEvent: {},
+    eventEditIndex: 0
 }
 
 export default function reducer(state = initialState, action) {
@@ -63,6 +65,10 @@ export default function reducer(state = initialState, action) {
     else if (action.type === DELETE_EVENT_SUCCESS) {
 
         return {...state, error: null, loading:false }
+    }
+    else if (action.type === SET_EVENT_EDIT_INDEX) {
+        console.log(action.index)
+        return {...state, eventEditIndex: action.index }
     }
     
     

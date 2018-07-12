@@ -16,3 +16,35 @@
     font-size: 20px;
     width: 80px;
 }
+
+.add-event-form-fields {
+    margin-left: 5px;
+}
+
+.add-event-form-section {
+    padding: 5px;
+    width: 100%;
+}
+
+.event-date {
+    
+    width: 35px;
+    height: 20px;
+    /* display: inline-block;
+    text-align: top; */
+}
+
+.event-date-label {
+    display: inline-block;
+}
+
+.add-event-date-form-section {
+    padding: 5px;
+    width: 60%;
+
+}
+
+.date-div {
+    display: inline-block;
+    border: solid black 3 px;
+}

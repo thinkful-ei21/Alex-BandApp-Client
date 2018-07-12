@@ -12,13 +12,13 @@ export class EventList extends React.Component {
         this.props.dispatch(fetchEventsByBand(this.props.band[0]))
     }
 
-    
+
     render(){
         return(
             <div className="actual-event-list-container">
             <h1 className="event-header">Upcoming Events</h1>
             <div className="event-list-container">
-            {(() => { if (this.props.loggedIn) { 
+            {(() => { if (this.props.loggedIn && this.props.currentBandUser) { 
                 return <button className="btn" onClick={() => this.props.dispatch(showModal("add-event-form"))}>Add Event</button>
             }})()}
             <ul className="event-list-ul">{this.props.events.map((item, index) =>{
@@ -26,13 +26,13 @@ export class EventList extends React.Component {
                 return (
                     <li className="event-list-item" key={index}>
                     <h2>{item.title}</h2>
-                    {(() => { if (this.props.loggedIn) { 
+                    {(() => { if (this.props.loggedIn && this.props.currentBandUser) { 
                         return <button onClick={() => this.props.dispatch(showModal("delete-event", item.id))}>Delete</button>
                     }})()}
-                    {(() => { if (this.props.loggedIn) { 
-                        return <button onClick={() => this.props.dispatch(showModal("edit-event", item.id))}>Edit</button>
+                    {(() => { if (this.props.loggedIn && this.props.currentBandUser) { 
+                        return <button onClick={() => this.props.dispatch(showModal("edit-event", index))}>Edit</button>
                     }})()}
-                    <section><img className="event-media" src={item.picUrl}/></section>
+                    <section><img alt="" className="event-media" src={item.picUrl}/></section>
                     <p>{item.description}</p>
                     <section><label>Location: </label><a>{item.location[0].name}</a></section>
                     <section><label>Date: </label><a>{new Date(item.eventDate).toLocaleDateString()}</a></section>
@@ -49,6 +49,7 @@ export class EventList extends React.Component {
 const mapStateToProps = state => ({
       events:state.events.events,
       loggedIn: state.auth.currentUser !== null,
+      currentBandUser: state.auth.currentUser !== null && state.band.band[0].id === state.auth.currentUser.band[0] ? true : false,
       band: state.band.band
   });
 

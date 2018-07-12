@@ -1,4 +1,4 @@
-import { SubmissionError } from 'redux-form'
+
 import {API_BASE_URL} from '../../config';
 
 const userFetch = value => fetch(`${API_BASE_URL}/users/checkExist`, {
@@ -12,7 +12,6 @@ const userFetch = value => fetch(`${API_BASE_URL}/users/checkExist`, {
 
 
 const asyncValidate = values => {
-    console.log("triggered")
     return userFetch(values.username).then((res) => {
         console.log(res)
         if(res > 0){

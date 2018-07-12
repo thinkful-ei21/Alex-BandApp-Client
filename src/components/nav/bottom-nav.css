@@ -3,20 +3,23 @@
     overflow: hidden;
     list-style: none;
     width: 100%;
+    min-width: 750px;
     padding-left: 0;
     margin-top: 0px;
     margin-bottom: 0px;
     text-align: center;
+    
 }
 
 /* The navigation bar */
 .bottom-nav {
-    overflow: hidden;
+    overflow: auto;
+    white-space: nowrap;
     background-color: #333;
     position: absolute; /* Set the navbar to fixed position */
     bottom: 0px; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
-    height: 50px;
+    height: 55px;
     font-family: 'Righteous', cursive;
     font-size: 20px;
 }
