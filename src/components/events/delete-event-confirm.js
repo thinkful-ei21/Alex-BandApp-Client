@@ -12,7 +12,7 @@ return (
         className="event-form">
             <h1>Are you sure you want to delete this event?</h1>
             <button className="btn" onClick={() => {
-                this.props.dispatch(deleteEvent(this.props.id))
+                this.props.dispatch(deleteEvent(this.props.id, this.props.band[0]))
                 this.props.dispatch(hideModal())
                 }}>OK</button>
             <button className="btn" onClick={() => this.props.dispatch(hideModal())}>Cancel</button>
@@ -20,4 +20,8 @@ return (
   );
 }}
 
-export default connect()(DeleteEventForm);
+const mapStateToProps = state => ({
+    band: state.band.band
+})
+
+export default connect(mapStateToProps)(DeleteEventForm);

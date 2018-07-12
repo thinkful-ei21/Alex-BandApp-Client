@@ -5,14 +5,12 @@ import {reduxForm, Field} from 'redux-form';
 import {required, nonEmpty} from '../../validators';
 import {editEvent} from '../../actions/event-list'
 import {fetchLocationsSearch} from '../../actions/locations'
+import {fetchEventsByBand} from '../../actions/event-list'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './edit-event-form.css';
 
 export class EditEventForm extends React.Component {
-    componentDidMount(){
-        console.log(this.props.eventId)
-        //this.props.dispatch(fetchEvent(this.props.id))
-    }
+
     locFieldChange(values) {
         if(values === ''){
             values = undefined
@@ -21,7 +19,8 @@ export class EditEventForm extends React.Component {
     }
     onSubmit(values) {
         values = {...values, band: this.props.band[0].id}
-        this.props.dispatch(editEvent(this.props.eventId, values));
+        this.props.dispatch(editEvent(this.props.eventId, values, this.props.band[0]))
+        
         this.props.dispatch(hideModal());
     }
 
@@ -68,7 +67,6 @@ export class EditEventForm extends React.Component {
 }}
 
 const mapStateToProps = state => {
-    console.log(state.events.events[state.events.eventEditIndex].eventDate)
     const term = state.form['event-form'] ? state.form['event-form'].values.location : undefined
     const locations = state.locations.locationsSearch
     const band = state.band.band

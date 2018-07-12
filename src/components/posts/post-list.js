@@ -11,6 +11,9 @@ export class PostList extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchPostsByBand(this.props.band[0]))
     }
+    componentDidUpdate() {
+        // this.props.dispatch(fetchPostsByBand(this.props.band[0]))
+    }
     render() {
         return (
 

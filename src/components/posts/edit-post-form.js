@@ -12,7 +12,8 @@ export class EditPostForm extends React.Component {
         this.props.dispatch(fetchPost(this.props.id))
     }
     onSubmit(values) {
-        this.props.dispatch(editPost(this.props.id, values));
+        values = {...values, band: this.props.band[0].id}
+        this.props.dispatch(editPost(this.props.id, values, this.props.band[0]));
         this.props.dispatch(hideModal());
     }
 
@@ -33,13 +34,15 @@ export class EditPostForm extends React.Component {
     );
 }}
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => {
+    const band = state.band.band
+    return ({band,
     initialValues: {
         message: state.posts.editPost.message,
-        mediaUrl: state.posts.editPost.mediaUrl
-    }
+        mediaUrl: state.posts.editPost.mediaUrl,
+        
+    }})}
   
-})
 
 let x = reduxForm({form: 'edit-post', enableReinitialize: true})(EditPostForm);
 

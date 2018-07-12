@@ -105,7 +105,7 @@ export const fetchEvent = (id) => dispatch =>{
     .catch(err => dispatch(fetchEventsError(err)))
 }
 
-export const addEvent = (values) => (dispatch, getState) =>{
+export const addEvent = (values, band) => (dispatch, getState) =>{
     const authToken = getState().auth.authToken
     dispatch(addEventRequest())
     fetch(`${API_BASE_URL}/locations/search/${values.location}`, {
@@ -125,11 +125,11 @@ export const addEvent = (values) => (dispatch, getState) =>{
     })})
     .then(res => !res.ok ? Promise.reject(res.statusText) : res.json())
     .then(res => dispatch(addEventSuccess()))
-    .then(res => dispatch(fetchEvents()))
+    .then(res => dispatch(fetchEventsByBand(band)))
     .catch(err => dispatch(fetchEventsError(err)))
 }
 
-export const deleteEvent = (id) => (dispatch, getState) =>{
+export const deleteEvent = (id, band) => (dispatch, getState) =>{
     const authToken = getState().auth.authToken
     dispatch(deleteEventRequest())
     fetch(`${API_BASE_URL}/events/${id}`,{
@@ -140,12 +140,11 @@ export const deleteEvent = (id) => (dispatch, getState) =>{
         }
     ).then(res => !res.ok ? Promise.reject(res.statusText) : undefined)
     .then(res => dispatch(deleteEventSuccess()))
-    .then(res => dispatch(fetchEvents()))
+    .then(res => dispatch(fetchEventsByBand(band)))
     .catch(err => dispatch(fetchEventsError(err)))
 }
 
-export const editEvent = (id, values) => (dispatch, getState) =>{
-    console.log(values)
+export const editEvent = (id, values, band) => (dispatch, getState) =>{
     const authToken = getState().auth.authToken
     dispatch(editEventRequest())
     fetch(`${API_BASE_URL}/locations/search/${values.location}`, {
@@ -166,6 +165,6 @@ export const editEvent = (id, values) => (dispatch, getState) =>{
     })})
     .then(res => !res.ok ? Promise.reject(res.statusText) : undefined)
     .then(res => dispatch(editEventSuccess()))
-    .then(res => dispatch(fetchEvents()))
+    .then(res => dispatch(fetchEventsByBand(band)))
     .catch(err => dispatch(fetchEventsError(err)))
 }

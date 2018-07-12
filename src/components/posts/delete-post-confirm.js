@@ -12,7 +12,7 @@ return (
         className="post-form">
             <h1>Are you sure you want to delete this post?</h1>
             <button className="btn" onClick={() => {
-                this.props.dispatch(deletePost(this.props.id))
+                this.props.dispatch(deletePost(this.props.id, this.props.band[0]))
                 this.props.dispatch(hideModal())
                 }}>OK</button>
             <button className="btn" onClick={() => this.props.dispatch(hideModal())}>Cancel</button>
@@ -20,4 +20,8 @@ return (
   );
 }}
 
-export default connect()(DeletePostForm);
+const mapStateToProps = state => ({
+    band: state.band.band
+})
+
+export default connect(mapStateToProps)(DeletePostForm);

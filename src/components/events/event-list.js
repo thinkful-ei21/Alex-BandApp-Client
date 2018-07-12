@@ -12,6 +12,9 @@ export class EventList extends React.Component {
         this.props.dispatch(fetchEventsByBand(this.props.band[0]))
     }
 
+    componentDidUpdate() {
+        // this.props.dispatch(fetchEventsByBand(this.props.band[0]))
+    }
 
     render(){
         return(
@@ -47,6 +50,7 @@ export class EventList extends React.Component {
 }
 
 const mapStateToProps = state => ({
+    
       events:state.events.events,
       loggedIn: state.auth.currentUser !== null,
       currentBandUser: state.auth.currentUser !== null && state.band.band[0].id === state.auth.currentUser.band[0] ? true : false,

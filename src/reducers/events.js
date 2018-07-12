@@ -67,7 +67,6 @@ export default function reducer(state = initialState, action) {
         return {...state, error: null, loading:false }
     }
     else if (action.type === SET_EVENT_EDIT_INDEX) {
-        console.log(action.index)
         return {...state, eventEditIndex: action.index }
     }
     

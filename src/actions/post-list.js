@@ -87,7 +87,7 @@ export const fetchPost = (id) => dispatch =>{
     .catch(err => dispatch(fetchPostsError(err)))
 }
 
-export const addPost = (values) => (dispatch, getState) =>{
+export const addPost = (values, band) => (dispatch, getState) =>{
     const authToken = getState().auth.authToken
     dispatch(addPostRequest())
     fetch(`${API_BASE_URL}/posts`,{
@@ -99,11 +99,11 @@ export const addPost = (values) => (dispatch, getState) =>{
         }
     }).then(res => !res.ok ? Promise.reject(res.statusText) : res.json())
     .then(res => dispatch(addPostSuccess()))
-    .then(res => dispatch(fetchPosts()))
+    .then(res => dispatch(fetchPostsByBand(band)))
     .catch(err => dispatch(fetchPostsError(err)))
 }
 
-export const deletePost = (id) => (dispatch, getState) =>{
+export const deletePost = (id, band) => (dispatch, getState) =>{
     const authToken = getState().auth.authToken
     dispatch(deletePostRequest())
     fetch(`${API_BASE_URL}/posts/${id}`,{
@@ -114,11 +114,11 @@ export const deletePost = (id) => (dispatch, getState) =>{
         }
     ).then(res => !res.ok ? Promise.reject(res.statusText) : undefined)
     .then(res => dispatch(deletePostSuccess()))
-    .then(res => dispatch(fetchPosts()))
+    .then(res => dispatch(fetchPostsByBand(band)))
     .catch(err => dispatch(fetchPostsError(err)))
 }
 
-export const editPost = (id, values) => (dispatch, getState) =>{
+export const editPost = (id, values, band) => (dispatch, getState) =>{
     const authToken = getState().auth.authToken
     dispatch(editPostRequest())
     fetch(`${API_BASE_URL}/posts/${id}`,{
@@ -130,6 +130,6 @@ export const editPost = (id, values) => (dispatch, getState) =>{
         }
     }).then(res => !res.ok ? Promise.reject(res.statusText) : undefined)
     .then(res => dispatch(editPostSuccess()))
-    .then(res => dispatch(fetchPosts()))
+    .then(res => dispatch(fetchPostsByBand(band)))
     .catch(err => dispatch(fetchPostsError(err)))
 }

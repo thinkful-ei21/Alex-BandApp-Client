@@ -12,7 +12,7 @@ import './add-event-form.css';
 export class AddEventForm extends React.Component {
     onSubmit(values) {
         values = {...values, band: this.props.band[0].id}
-        this.props.dispatch(addEvent(values));
+        this.props.dispatch(addEvent(values, this.props.band[0]));
         this.props.dispatch(hideModal());
     }
     locFieldChange(values) {
@@ -48,10 +48,9 @@ export class AddEventForm extends React.Component {
             <label htmlFor="description">Description</label>
             <Field className="add-event-form-fields" name="description" id="description" type="description" initial component='input' />
             </section>
-            <section className="add-event-date-form-section">
-            <label htmlFor="eventDate" className="event-date-label">Event Date</label><div className="date-div">
-            <Field className="add-event-form-fields event-date" name="eventDate" id="eventDate" format={null} initial component={DatePicker} />
-            </div>
+            <section className="add-event-form-section">
+            <label htmlFor="eventDate" className="event-date-label">Event Date</label>
+            <Field className="add-event-form-fields" name="eventDate" id="eventDate" initial component="input" type="datetime-local" />
             </section>
             <section className="add-event-form-section">
             <label htmlFor="location">Location</label>

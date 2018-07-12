@@ -9,7 +9,8 @@ import './add-post-form.css';
 
 export class AddPostForm extends React.Component {
     onSubmit(values) {
-        this.props.dispatch(addPost(values));
+        values = {...values, band: this.props.band[0].id}
+        this.props.dispatch(addPost(values, this.props.band[0]));
         this.props.dispatch(hideModal());
     }
     render() {
@@ -19,18 +20,26 @@ export class AddPostForm extends React.Component {
             this.onSubmit(values))}
         className="post-form">
             <h1>Add Post</h1>
-            <label htmlFor="message">Message</label>
-            <Field name="message" id="message" type="text" component="input" validate={[required, nonEmpty]}/>
+            <section className="add-post-form-section">
+            <label className="add-post-label" htmlFor="message">Message</label>
+            <Field className="message-input add-post-form-fields" name="message" id="message" type="text" component="textarea" validate={[required, nonEmpty]}/>
+            </section>
+            <section className="add-post-form-section">
             <label htmlFor="mediaUrl">Media URL</label>
-            <Field name="mediaUrl" id="mediaUrl" type="text" component="input" />
-            <button className="btn" type="submit">OK</button>
-            <button className="btn" onClick={() => this.props.dispatch(hideModal())}>Cancel</button>
+            <Field className="add-post-form-fields" name="mediaUrl" id="mediaUrl" type="text" component="input" />
+            </section>
+            <button className="add-post-submit-button" type="submit">OK</button>
+            <button className="add-post-cancel-button" onClick={() => this.props.dispatch(hideModal())}>Cancel</button>
         </form>
     );
 }}
 
+const mapStateToProps = state => ({
+    band: state.band.band
+})
+
 let x = reduxForm({form: 'contact'})(AddPostForm);
 
-x = connect()(x);
+x = connect(mapStateToProps)(x);
 
 export default x;
