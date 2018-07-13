@@ -86,7 +86,7 @@ let x = reduxForm({
     form: 'band-registration',
     validate,
     asyncValidate,
-    asyncBlurFields: ['username'],
+    asyncBlurFields: ['username', 'bandName', 'bandUrl'],
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('band-registration', Object.keys(errors)[0]))
 })(BandRegistrationForm);
