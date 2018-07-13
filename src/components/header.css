@@ -6,3 +6,9 @@
 .logo-image {
     height: 100%;
 }
+
+.logo-text {
+    color: black;
+    background-color: white;
+    display: inline-block;
+}

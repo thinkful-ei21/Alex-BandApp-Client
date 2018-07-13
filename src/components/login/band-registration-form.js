@@ -17,8 +17,8 @@ export class BandRegistrationForm extends React.Component {
         // console.log("triggered")
     }
     onSubmit(values) {
-        const {username, password, firstName, lastName, bandName, bandUrl} = values;
-        const newband = {username, bandName, bandUrl};
+        const {username, password, firstName, lastName, bandName, bandUrl, bannerUrl} = values;
+        const newband = {username, bandName, bandUrl, bannerUrl};
         this.props.dispatch(registerBand(newband))
         .then( (res)=> {
         console.log(res)
@@ -39,6 +39,8 @@ export class BandRegistrationForm extends React.Component {
                 <Field component={Input} type="text" name="bandName" />
                 <label htmlFor="bandUrl">Band URL</label>
                 <Field component={Input} type="text" name="bandUrl" />
+                <label htmlFor="bannerUrl">Banner URL</label>
+                <Field component={Input} type="text" name="bannerUrl" />
                 <label htmlFor="firstName">First name</label>
                 <Field component={Input} type="text" name="firstName" />
                 <label htmlFor="lastName">Last name</label>

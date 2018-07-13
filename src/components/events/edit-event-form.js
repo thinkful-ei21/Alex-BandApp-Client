@@ -25,6 +25,7 @@ export class EditEventForm extends React.Component {
     }
 
     render() {
+        
     return (
         <MuiThemeProvider>
         <form 
@@ -76,7 +77,7 @@ const mapStateToProps = state => {
         title: state.events.events[state.events.eventEditIndex].title,
         picUrl: state.events.events[state.events.eventEditIndex].picUrl,
         description: state.events.events[state.events.eventEditIndex].description,
-        eventDate: state.events.events[state.events.eventEditIndex].eventDate,
+        eventDate: state.events.events[state.events.eventEditIndex].eventDate.toString().slice(0, -8),
         location: state.events.events[state.events.eventEditIndex].location[0].name,
         locations: state.locations.locationsSearch,
         

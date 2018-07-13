@@ -40,6 +40,7 @@ export class PostList extends React.Component {
                                     }
                                 })()}
                                 <img alt="" className="post-media" src={item.mediaUrl} />
+                                <span>Posted: {new Date(item.createdAt).toLocaleString()}</span>
                             </li>
                         )
                     })}</ul>

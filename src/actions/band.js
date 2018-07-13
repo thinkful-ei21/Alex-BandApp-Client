@@ -47,6 +47,7 @@ export const fetchBand = (name) => dispatch =>{
 }
 
 export const registerBand = band => dispatch => {
+    let newBand;
     return fetch(`${API_BASE_URL}/bands`, {
         method: 'POST',
         headers: {
@@ -56,6 +57,9 @@ export const registerBand = band => dispatch => {
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
+        .then(res => { newBand = res
+            return dispatch(fetchAllBands())})
+        .then(res => newBand)
         .catch(err => {
             const {reason, message, location} = err;
             if (reason === 'ValidationError') {
