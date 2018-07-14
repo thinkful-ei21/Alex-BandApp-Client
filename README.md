@@ -20,7 +20,7 @@ https://github.com/thinkful-ei21/Alex-BandApp-Server.git
 ## Screenshots of the app:
 
 ### Home Page:
-![Login](images/Login.png)
+![Login](src/pics/HomePage.png)
 
 ### Band Registration:
 
