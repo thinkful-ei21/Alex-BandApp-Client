@@ -7,6 +7,8 @@
     margin-right: 30px;
     margin-top: 30px;
     margin-bottom: 30px;
+    position: relative;
+    background-color: black;
 }
 
 .register-band {
@@ -17,7 +19,7 @@
     overflow: hidden;
     margin-top: 30px;
     margin-bottom: 30px;
-    /* vertical-align: middle; */
+    background-color: black
     
 }
 
@@ -28,30 +30,49 @@
     margin-right: auto;
     margin-top: 75px;
     border: solid white 2px;
-    background-color: black;
+    background-color: rgba(77, 8, 8, 0.808);
     color: white;
     /* position: relative; */
 }
 
 .register-band-button {
-    font-size: 30px;
-    display: inline-block;
-    margin-top: 45%;   
+    font-size: 18px;
+    position: absolute;
+    left: 110px;
+    bottom: 5px;
+    border-radius: 2%;
 }
-
 .home-banner {
     height: 200px;
-    background-image: url(https://www.musicmartonline.com/wp-content/uploads/2015/08/MM-Videos-Banner.jpg);
+    background-color: brown;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
 }
 
 .home-banner-text {
-    display: block;
+    display: block; 
     font-size: 60px;
+    font-family: 'Hammersmith One', sans-serif;
+}
+
+.banner-text-container {
+    margin-top: 75px;
+    display: inline-block;
 }
 
 .all-bands-list-item {
-    font-size: 25px
+    font-size: 25px;
+    list-style: none;
+    
+}
+ 
+.all-bands-list {
+    padding-left: 0;
+    background-color: black;
+}
+
+.the-bands {
+    font-family: 'Duru Sans', sans-serif;
+    font-size: 20px;
 }

@@ -48,6 +48,7 @@ export const fetchBand = (name) => dispatch =>{
 
 export const registerBand = band => dispatch => {
     let newBand;
+    
     return fetch(`${API_BASE_URL}/bands`, {
         method: 'POST',
         headers: {

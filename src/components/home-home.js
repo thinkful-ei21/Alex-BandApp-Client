@@ -14,10 +14,14 @@ export class HomeHome extends React.Component {
     <div className="home-home">
       <main role="main">
         <div className="home-banner">
+        <div className="banner-text-container">
         <span className="home-banner-text">SIOUX CITY MUSIC</span>
         </div>
+        </div>
+        <div>
         <div className="band-list">
-        <h1>Band List</h1>
+        <div>
+        <h1 className="the-bands">The Bands</h1>
         <ul className="all-bands-list">{this.props.allBands.map((item, index) =>{
                 return (
                     <li className="all-bands-list-item" key={index}>
@@ -26,8 +30,14 @@ export class HomeHome extends React.Component {
                 )
             })}</ul>
         </div>
+        
+        <button className="register-band-button" onClick={() => this.props.dispatch(showModal("band-registration-page"))}>Register Band</button>
+        
+        </div>
         <div className="register-band">
-        <button className="register-band-button btn" onClick={() => this.props.dispatch(showModal("band-registration-page"))}>Register Band</button>
+        <h1>The Venues</h1>
+        
+        </div>
         </div>
         <Modal />
       </main>
