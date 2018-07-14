@@ -24,24 +24,31 @@ https://github.com/thinkful-ei21/Alex-BandApp-Server.git
 
 ### Band Registration:
 
-### Band Page:
+![BandRegistration](src/pics/register_new_band.png)
+
+### New Band Page:
+![NewBandPage](src/pics/new_band_page.png)
+
+### Populated Band Page:
+![PopulatedandPage](src/pics/loaded_band_page.png)
 
 ### Add Post:
+![AddPost](src/pics/add_post.png)
 
 ### Edit Post:
+![EditPost](src/pics/edit_post.png)
 
-### Delete Post:
+### Delete Post or Event:
+![Delete](src/pics/delete.png)
 
 ### Add Event:
+![AddEvent](src/pics/add_event.png)
 
 ### Edit Event:
-
-### Delete Event:
-
-### Login:
+![EditEvent](src/pics/edit_event.png)
 
 ### Register New Band Member:
-
+![newBandMember](src/pics/register_new_band_member.png)
 
 ## Tech Stack:
 
