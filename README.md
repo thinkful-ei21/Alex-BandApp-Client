@@ -11,9 +11,11 @@ Sioux City Music allows local bands (local to Sioux City, IA) to create a webpag
 
 ## Link to the live version:
 
+https://sioux-city-music.herokuapp.com/home/
 
 ## Link to the database repo:
 
+https://github.com/thinkful-ei21/Alex-BandApp-Server.git
 
 ## Screenshots of the app:
 
