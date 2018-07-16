@@ -9,6 +9,12 @@
     margin-bottom: 30px;
     position: relative;
     background-color: black;
+    text-align: center;
+}
+
+.band-list:hover .the-bands {
+    width: 75%;
+    border-bottom-color:  brown;
 }
 
 .register-band {
@@ -41,6 +47,7 @@
     left: 110px;
     bottom: 5px;
     border-radius: 2%;
+    font-family: 'Duru Sans', sans-serif;
 }
 .home-banner {
     height: 200px;
@@ -64,15 +71,55 @@
 .all-bands-list-item {
     font-size: 25px;
     list-style: none;
-    
+    margin-top: 8px;
+}
+
+.all-bands-list-item a {
+    transition: color 1s;
+}
+
+.all-bands-list-item a:link {
+    text-decoration: none;
+}
+
+.all-bands-list-item a:visited{
+    text-decoration: none;
+    color: rgb(248, 87, 58);
+}
+
+.all-bands-list-item a:hover {
+    color: white;
+}
+
+.all-bands-list-item a:active {
+    text-decoration: underline;
 }
  
 .all-bands-list {
     padding-left: 0;
     background-color: black;
+    
 }
 
 .the-bands {
     font-family: 'Duru Sans', sans-serif;
     font-size: 20px;
+    border-bottom: solid white 2px;
+    transition: border-bottom-color 1s, width 1s;
+    /* transition: width 1s; */
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5px;
+}
+
+.the-venues {
+    font-family: 'Duru Sans', sans-serif;
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 500px) {
+
+
+    
 }

@@ -15,7 +15,7 @@ export class AddPostForm extends React.Component {
     }
     render() {
     return (
-        <form 
+        <form autocomplete="off"
         onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values))}
         className="post-form">

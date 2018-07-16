@@ -10,6 +10,17 @@ export const fetchLocationsSearchSuccess = (locations) =>({
     locations
 })
 
+export const ALL_LOCATIONS_REQUEST = 'ALL_LOCATIONS_REQUEST'
+export const fetchAllLocationsRequest = () =>({
+    type: ALL_LOCATIONS_REQUEST
+})
+
+export const ALL_LOCATIONS_SUCCESS = 'ALL_LOCATIONS_SUCCESS'
+export const fetchAllLocationsSuccess = (locations) =>({
+    type: ALL_LOCATIONS_SUCCESS,
+    locations
+})
+
 export const LOCATIONS_ERROR = 'LOCATIONS_ERROR'
 export const fetchLocationsError = () =>({
     type: LOCATIONS_ERROR
@@ -22,6 +33,15 @@ export const fetchLocationsSearch = (term) => dispatch => {
     })
     .then(res => !res.ok ? Promise.reject(res.statusText) : res.json())
     .then(res => dispatch(fetchLocationsSearchSuccess(res)))
+    .catch(err => dispatch(fetchLocationsError(err)))
+}
+
+export const fetchAllLocations = () => dispatch => {
+    dispatch(fetchAllLocationsRequest())
+    fetch(`${API_BASE_URL}/locations`
+    )
+    .then(res => !res.ok ? Promise.reject(res.statusText) : res.json())
+    .then(res => dispatch(fetchAllLocationsSuccess(res)))
     .catch(err => dispatch(fetchLocationsError(err)))
 }
 

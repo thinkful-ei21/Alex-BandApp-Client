@@ -5,7 +5,7 @@ import {reduxForm, Field} from 'redux-form';
 import {required, nonEmpty} from '../../validators';
 import {editPost, fetchPost} from '../../actions/post-list'
 
-import './add-post-form.css';
+import './edit-post-form.css';
 
 export class EditPostForm extends React.Component {
     componentDidMount(){
@@ -19,17 +19,21 @@ export class EditPostForm extends React.Component {
 
     render() {
     return (
-        <form 
+        <form autocomplete="off"
         onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values))}
         className="post-form" >
             <h1>Edit Post</h1>
-            <label htmlFor="message">Message</label>
-            <Field name="message" id="message" type="text" component="input" validate={[required, nonEmpty]}/>
+            <section className="edit-post-form-section">
+            <label className="edit-post-label" htmlFor="message">Message</label>
+            <Field className="message-input edit-post-form-fields" name="message" id="message" type="text" component="textarea" validate={[required, nonEmpty]}/>
+            </section>
+            <section className="edit-post-form-section">
             <label htmlFor="mediaUrl">Media URL</label>
-            <Field name="mediaUrl" id="mediaUrl" type="text" initial component="input" />
-            <button className="btn" type="submit">OK</button>
-            <button className="btn" onClick={() => this.props.dispatch(hideModal())}>Cancel</button>
+            <Field className="edit-post-form-fields" name="mediaUrl" id="mediaUrl" type="text" initial component="input" />
+            </section>
+            <button className="edit-post-submit-button" type="submit">OK</button>
+            <button className="edit-post-cancel-button" onClick={() => this.props.dispatch(hideModal())}>Cancel</button>
         </form>
     );
 }}

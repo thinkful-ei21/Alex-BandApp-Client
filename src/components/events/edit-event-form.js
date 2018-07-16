@@ -28,7 +28,7 @@ export class EditEventForm extends React.Component {
         
     return (
         <MuiThemeProvider>
-        <form 
+        <form autocomplete="off"
         onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values))}
         className="event-form">

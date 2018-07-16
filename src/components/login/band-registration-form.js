@@ -31,7 +31,7 @@ export class BandRegistrationForm extends React.Component {
     }
     render() {
         return (
-            <form onChange={this.handleChange()}
+            <form autocomplete="off" onChange={this.handleChange()}
                 onSubmit={this.props.handleSubmit(values =>{
                     this.onSubmit(values)}
                 )}>
