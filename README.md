@@ -11,7 +11,7 @@ Sioux City Music allows local bands (local to Sioux City, IA) to create a webpag
 
 ## Link to the live version:
 
-https://sioux-city-music.herokuapp.com/home/
+https://sioux-city-music.herokuapp.com/
 
 ## Link to the database repo:
 
@@ -28,7 +28,7 @@ Venue links do not lead anywhere yet. Click a band or register a new band.
 
 ![BandRegistration](src/pics/register_new_band.png)
 
-Band url is just the text that will come after /home/ and will redirect to your band page.
+Band url is just the text that will come after / and will redirect to your band page.
 
 ### New Band Page:
 ![NewBandPage](src/pics/new_band_page.png)
