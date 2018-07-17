@@ -37,7 +37,7 @@ export class BandRegistrationForm extends React.Component {
                 )}>
                 <label htmlFor="bandName">Band Name</label>
                 <Field component={Input} type="text" name="bandName" />
-                <label htmlFor="bandUrl">Band URL</label>
+                <label htmlFor="bandUrl">Band URL (text to come after 'home/')</label>
                 <Field component={Input} type="text" name="bandUrl" />
                 <label htmlFor="bannerUrl">Banner URL</label>
                 <Field component={Input} type="text" name="bannerUrl" />
