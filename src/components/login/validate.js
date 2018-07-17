@@ -11,6 +11,94 @@ const validate = values => {
         if (values.bandUrl.search(" ") !== -1) {
           errors.bandUrl = 'url cannot have spaces'
       }
+      if (values.bandUrl.search("/") !== -1) {
+        errors.bandUrl = 'cannot have /'
+      }
+      if (values.bandUrl.search(";") !== -1) {
+        errors.bandUrl = 'cannot have ;'
+      }
+      if (values.bandUrl.search(":") !== -1) {
+        errors.bandUrl = 'cannot have :'
+      }
+      if (values.bandUrl.search("@") !== -1) {
+        errors.bandUrl = 'cannot have @'
+      }
+      if (values.bandUrl.search("=") !== -1) {
+        errors.bandUrl = 'cannot have ='
+      }
+      if (values.bandUrl.search("&") !== -1) {
+        errors.bandUrl = 'cannot have &'
+      }
+      if (values.bandUrl.search(">") !== -1) {
+        errors.bandUrl = 'cannot have >'
+      }
+      if (values.bandUrl.search("<") !== -1) {
+        errors.bandUrl = 'cannot have <'
+      }
+      if (values.bandUrl.search("#") !== -1) {
+        errors.bandUrl = 'cannot have #'
+      }
+      if (values.bandUrl.search("%") !== -1) {
+        errors.bandUrl = 'cannot have %'
+      }
+      // if (values.bandUrl.search("\^") !== -1) {
+      //   errors.bandUrl = 'cannot have ^'
+      // }
+      if (values.bandUrl.search("~") !== -1) {
+        errors.bandUrl = 'cannot have ~'
+      }
+      if (values.bandUrl.search("`") !== -1) {
+        errors.bandUrl = 'cannot have `'
+      }
+      if (values.bandUrl.search("\"") !== -1) {
+        errors.bandUrl = 'cannot have \"'
+      }
+      if (values.bandUrl.search("\'") !== -1) {
+        errors.bandUrl = 'cannot have \''
+      }
+      // if (values.bandUrl.search(".") !== -1) {
+      //   errors.bandUrl = 'cannot have .'
+      // }
+      if (values.bandUrl.search(",") !== -1) {
+        errors.bandUrl = 'cannot have ,'
+      }
+      // if (values.bandUrl.search("\[") !== -1) {
+      //   errors.bandUrl = 'cannot have ['
+      // }
+      // if (values.bandUrl.search("\]") !== -1) {
+      //   errors.bandUrl = 'cannot have ]'
+      // }
+      if (values.bandUrl.search("=") !== -1) {
+        errors.bandUrl = 'cannot have ='
+      }
+      // if (values.bandUrl.search("+") !== -1) {
+      //   errors.bandUrl = 'cannot have +'
+      // }
+      // if (values.bandUrl.search("*") !== -1) {
+      //   errors.bandUrl = 'cannot have *'
+      // }
+      // if (values.bandUrl.search("?") !== -1) {
+      //   errors.bandUrl = 'cannot have ?'
+      // }
+      // if (values.bandUrl.search("\\") !== -1) {
+      //   errors.bandUrl = 'cannot have \\'
+      // }
+      // if (values.bandUrl.search("|") !== -1) {
+      //   errors.bandUrl = 'cannot have |'
+      // }
+      if (values.bandUrl.search("{") !== -1) {
+        errors.bandUrl = 'cannot have {'
+      }
+      if (values.bandUrl.search("}") !== -1) {
+        errors.bandUrl = 'cannot have }'
+      }
+      // if (values.bandUrl.search("(") !== -1) {
+      //   errors.bandUrl = 'cannot have .'
+      // }
+      // if (values.bandUrl.search(")") !== -1) {
+      //   errors.bandUrl = 'cannot have .'
+      // }
+
     }
     return errors
   }

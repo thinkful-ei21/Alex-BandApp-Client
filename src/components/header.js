@@ -6,9 +6,8 @@ import './header.css';
 
 class Header extends React.Component {
   render() {
-  console.log(this.props.band[0].name)
   let logo;
-  if (this.props.band[0].bannerUrl === "") {
+  if (this.props.band[0].bannerUrl === "" ) {
     logo = <h1 className="logo-text" >{this.props.band[0].name}</h1>
   }
   else {

@@ -27,7 +27,7 @@ export class HomeHome extends React.Component {
         <ul className="all-bands-list">{this.props.allBands.map((item, index) =>{
                 return (
                     <li className="all-bands-list-item" key={index}>
-                    <a href={"/home/" + item.bandUrl}>{item.name}</a>
+                    <a href={"/" + item.bandUrl}>{item.name}</a>
                     </li>
                 )
             })}</ul>
@@ -39,7 +39,7 @@ export class HomeHome extends React.Component {
         <ul className="all-bands-list">{this.props.allLocations.map((item, index) =>{
                 return (
                     <li className="all-bands-list-item" key={index}>
-                    <a href={"/home/"}>{item.name}</a>
+                    <span>{item.name}</span>
                     </li>
                 )
             })}</ul>

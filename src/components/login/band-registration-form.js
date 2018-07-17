@@ -10,6 +10,7 @@ import validate from './validate'
 import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
 import {connect} from 'react-redux';
 const passwordLength = length({min: 6, max: 72});
+const urlLength = length({min: 1, max: 40});
 const matchesPassword = matches('password');
 
 export class BandRegistrationForm extends React.Component {
@@ -31,14 +32,14 @@ export class BandRegistrationForm extends React.Component {
     }
     render() {
         return (
-            <form autocomplete="off" onChange={this.handleChange()}
+            <form autoComplete="off" onChange={this.handleChange()}
                 onSubmit={this.props.handleSubmit(values =>{
                     this.onSubmit(values)}
                 )}>
                 <label htmlFor="bandName">Band Name</label>
                 <Field component={Input} type="text" name="bandName" />
-                <label htmlFor="bandUrl">Band URL (text to come after 'home/')</label>
-                <Field component={Input} type="text" name="bandUrl" />
+                <label htmlFor="bandUrl">Band URL (text to come after '/' in Url)</label>
+                <Field component={Input} type="text" name="bandUrl" validate={[required, nonEmpty, urlLength, isTrimmed]}/>
                 <label htmlFor="bannerUrl">Banner URL</label>
                 <Field component={Input} type="text" name="bannerUrl" />
                 <label htmlFor="firstName">First name</label>

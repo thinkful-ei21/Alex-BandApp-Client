@@ -15,7 +15,7 @@ class AppRouter extends React.Component {
         if (this.props.band.length > 0){
         return <App />
         }
-        return <h1> BAND NOT FOUND </h1>
+        return <h1> Loading... </h1>
     }
     render() {
   return (

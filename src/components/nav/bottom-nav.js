@@ -12,7 +12,7 @@ export function BottomNav(props) {
             <ul className="navList">
                 <li className="bottom-nav-first-child">
                     <span 
-                        className="navLink" aria-label="link to home" ><a href="/home">
+                        className="navLink" aria-label="link to home" ><a href="/">
                         Home
                         </a>
                     </span>

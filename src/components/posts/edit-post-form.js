@@ -19,7 +19,7 @@ export class EditPostForm extends React.Component {
 
     render() {
     return (
-        <form autocomplete="off"
+        <form autoComplete="off"
         onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values))}
         className="post-form" >
