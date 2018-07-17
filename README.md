@@ -22,15 +22,21 @@ https://github.com/thinkful-ei21/Alex-BandApp-Server.git
 ### Home Page:
 ![Login](src/pics/HomePage.png)
 
+Venue links do not lead anywhere yet. Click a band or register a new band.
+
 ### Band Registration:
 
 ![BandRegistration](src/pics/register_new_band.png)
+
+Band url is just the text that will come after /home/ and will redirect to your band page.
 
 ### New Band Page:
 ![NewBandPage](src/pics/new_band_page.png)
 
 ### Populated Band Page:
 ![PopulatedandPage](src/pics/loaded_band_page.png)
+
+login for artificial stars is user: manny1806 password: thinkful
 
 ### Add Post:
 ![AddPost](src/pics/add_post.png)
