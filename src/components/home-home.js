@@ -20,7 +20,7 @@ export class HomeHome extends React.Component {
         <span className="home-banner-text">SIOUX CITY MUSIC</span>
         </div>
         </div>
-        <div>
+        <div className="row-container">
         <div className="band-list">
         <div>
         <h1 className="the-bands">The Bands</h1>
@@ -32,8 +32,12 @@ export class HomeHome extends React.Component {
                 )
             })}</ul>
         </div>
+        <div className="button-container">
         <button className="register-band-button" onClick={() => this.props.dispatch(showModal("band-registration-page"))}>Register Band</button>
         </div>
+        </div>
+        </div>
+        <div className="row-container">
         <div className="register-band">
         <h1 className="the-venues">The Venues</h1>
         <ul className="all-bands-list">{this.props.allLocations.map((item, index) =>{

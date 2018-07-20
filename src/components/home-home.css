@@ -4,7 +4,7 @@
     display: inline-block;
     border: solid white 2px;
     overflow: hidden;
-    margin-right: 30px;
+    margin-right: auto;
     margin-top: 30px;
     margin-bottom: 30px;
     position: relative;
@@ -41,14 +41,28 @@
     /* position: relative; */
 }
 
+.row-container {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .register-band-button {
     font-size: 18px;
-    position: absolute;
-    left: 110px;
-    bottom: 5px;
+    display: inline;
+    /* position: absolute;
+    left: 29%;
+    bottom: 5px; */
     border-radius: 2%;
     font-family: 'Duru Sans', sans-serif;
 }
+.button-container {
+    position: absolute;
+    bottom: 5px;
+    text-align: center;
+    width: 100%;
+}
+
 .home-banner {
     height: 200px;
     background-color: brown;
@@ -118,8 +132,50 @@
     font-size: 20px;
 }
 
+@media only screen and (max-width: 700px) {
+    .home-banner-text {
+        font-size: 50px;
+    }
+
+    .home-banner {
+        height: 100px;
+        
+    }
+
+    .banner-text-container {
+        margin-top: 25px;
+    }
+    
+}
+
 @media only screen and (max-width: 500px) {
+    .band-list {
+        width: 265px;
+    }
+    .register-band {
+        width: 265px;
+    }
 
+    .home-banner {
+        height: 80px;
+        
+    }
 
+    .home-banner-text {
+        font-size: 32px;
+    }
+
+    .home-home {
+        margin-top: 10px;
+    }
+
+    .the-bands {
+        width: 50%;
+    }
+
+    .all-bands-list-item {
+        font-size: 20px;
+        
+    }
     
 }
