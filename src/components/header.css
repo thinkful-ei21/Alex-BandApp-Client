@@ -12,3 +12,12 @@
     background-color: white;
     display: inline-block;
 }
+
+@media only screen and (max-width: 500px) {
+    .logo-image {
+        width: 280px;
+        height: 60%;
+        margin-top: 15px;
+    }
+    
+} 

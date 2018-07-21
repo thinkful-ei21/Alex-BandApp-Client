@@ -11,7 +11,7 @@
 .actual-post-list-container{
     
     display: inline-block;
-    margin-right: 20px;
+    /* margin-right: 20px; */
 }
 .post-list-container {
     max-width: 550px;
@@ -42,9 +42,15 @@
 
     .post-list-container {
         
-        min-width: 350px;
+        min-width: 280px;
         
         
+    }
+
+    .post-list-header {
+        margin-top: 30px;
+        font-size: 30px;
+        margin-bottom: 10px;
     }
 
     .post-list-item{

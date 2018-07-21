@@ -1,7 +1,7 @@
 import {createStore, applyMiddleware, combineReducers} from 'redux'
-import thunk from 'redux-thunk';
-import {loadAuthToken} from './local-storage';
-import authReducer from './reducers/auth';
+import thunk from 'redux-thunk'
+import {loadAuthToken} from './local-storage'
+import authReducer from './reducers/auth'
 import protectedDataReducer from './reducers/protected-data'
 import posts from './reducers/posts'
 import events from './reducers/events'
@@ -9,7 +9,7 @@ import modals from './reducers/modals'
 import band from './reducers/band'
 import locations from './reducers/locations'
 import {reducer as formReducer} from 'redux-form'
-import {setAuthToken, refreshAuthToken} from './actions/auth';
+import {setAuthToken, refreshAuthToken} from './actions/auth'
 
 const reducers = combineReducers({posts, locations, band, events, modals, form: formReducer, auth: authReducer,
     protectedData: protectedDataReducer});
