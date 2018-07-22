@@ -30,7 +30,7 @@ export function BottomNav(props) {
                         }}>Logout</span>
                         </li>
                         <li className="bottom-nav-li">
-                        <span  className="navLink" onClick={() => props.dispatch(showModal("registration-page"))}>Register Band Member</span>
+                        <span  className="navLink navlink-register-band-member" onClick={() => props.dispatch(showModal("registration-page"))}>New Band Member</span>
                     </li></div>
                     }
                     else {

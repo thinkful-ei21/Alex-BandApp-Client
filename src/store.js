@@ -8,10 +8,11 @@ import events from './reducers/events'
 import modals from './reducers/modals'
 import band from './reducers/band'
 import locations from './reducers/locations'
+import mobileFeeds from './reducers/mobileFeeds'
 import {reducer as formReducer} from 'redux-form'
 import {setAuthToken, refreshAuthToken} from './actions/auth'
 
-const reducers = combineReducers({posts, locations, band, events, modals, form: formReducer, auth: authReducer,
+const reducers = combineReducers({posts, mobileFeeds, locations, band, events, modals, form: formReducer, auth: authReducer,
     protectedData: protectedDataReducer});
 const store = createStore(reducers, {modals: { isShowing: false}}, applyMiddleware(thunk));
 

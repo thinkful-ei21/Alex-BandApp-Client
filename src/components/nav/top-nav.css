@@ -11,17 +11,6 @@
     margin-bottom: 0px;
 }
 
-.swipe-overlay {
-    visibility: hidden;
-    position: fixed;
-    top: 42px;
-    padding-top: 10px;
-    padding-left: 70%;
-    text-align: left;
-    font-size: 30px;
-    font-family: 'Roboto Mono', monospace;
-}
-
 /* The navigation bar */
 .top-nav {
     overflow: auto;
@@ -60,19 +49,17 @@
     text-decoration: none;
 }
 
-
-
-/* .swipe-overlay {
+.swipe-overlay {
+    visibility: hidden;
     position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background: gray;
-    /* opacity: 0.3; 
-    z-index: 10;
-    
-} */
+    top: 42px;
+    padding-top: 10px;
+    padding-left: 70%;
+    text-align: left;
+    font-size: 30px;
+    font-family: 'Roboto Mono', monospace;
+    pointer-events: none;
+}
 
 @media only screen and (max-width: 500px) {
     .swipe-overlay {
@@ -84,20 +71,34 @@
         background: rgba(255, 130, 84, 0.644);
         opacity: 0.85;
         z-index: 11;
-        transition: 2s;
+        /* transition: 2s; */
+        animation: swipe-animation 2s normal;
         padding-left: 25%;
     }
 
     .swipe-overlay-container {
         visibility: hidden;
         /* display: none; */
-        transition-delay: 2s;
+        /* transition-delay: 2s;
         transition: 1s 2s;
-        opacity: 0;
+        opacity: 0; */
+        animation: swipe-animation-container 1s forwards;
+        animation-delay: 2s;
+        
     }
 
     .top-nav {
         top: 42px;
     }
 
-} 
+}
+
+@keyframes swipe-animation {
+    from {opacity: 0; padding-left: 70%;}
+    to {opacity: 1; padding-left: 25%;}
+}
+
+@keyframes swipe-animation-container {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}

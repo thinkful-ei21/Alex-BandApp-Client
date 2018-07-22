@@ -8,6 +8,11 @@ import AppRouter from './components/app-router';
 import HomeHome from './components/home-home'
 import registerServiceWorker from './registerServiceWorker';
 import './index.css'
+import {checkMobileFeedHidden} from './actions/mobile-feeds'
+
+window.addEventListener('resize', () => {
+    store.dispatch(checkMobileFeedHidden());
+});
 
 ReactDOM.render(
 <Provider store={store}>

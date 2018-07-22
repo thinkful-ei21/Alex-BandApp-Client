@@ -7,7 +7,7 @@ import './coming-soon.css'
 export function ComingSoon(props) {
   return (
     <div className="coming-soon-container">
-      <section>
+      <section className="coming-soon-section">
       <h1>COMING SOON!</h1>
       <button onClick={() => props.dispatch(hideModal())}>Close</button>
       </section>
