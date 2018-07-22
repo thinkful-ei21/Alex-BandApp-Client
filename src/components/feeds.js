@@ -7,6 +7,8 @@ import './feeds.css';
 export default function Feeds(props) {
   return (
     <div className="feeds">
+      <span className="mobile-feed-headers">Posts</span>
+      <span className="mobile-feed-headers">Events</span>
       <PostList />
       <EventList />
     </div>

@@ -10,7 +10,7 @@ export function Home(props) {
   return (
     <div className="home">
       <Header />
-      <main role="main">
+      <main role="main" id="main">
         <Feeds />
         <BottomNav />
       </main>

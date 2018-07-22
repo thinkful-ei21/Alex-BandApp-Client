@@ -49,4 +49,8 @@
     .event-media:hover{
         width: 300px;
     }
+
+    .actual-event-list-container {
+        display: none;
+    }
   }

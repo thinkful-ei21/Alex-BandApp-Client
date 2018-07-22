@@ -3,6 +3,7 @@ import Home from './components/home';
 import { connect } from "react-redux";
 import { showModal} from './actions/modals'
 import Modal from './components/modal'
+import './App.css'
 
 
 

@@ -9,7 +9,7 @@ import './bottom-nav.css';
 export function BottomNav(props) {
     return (
         <nav className="bottom-nav">
-            <ul className="navList">
+            <ul className="bottom-navList">
                 <li className="bottom-nav-first-child">
                     <span 
                         className="navLink" aria-label="link to home" ><a href="/">
@@ -17,11 +17,11 @@ export function BottomNav(props) {
                         </a>
                     </span>
                 </li>
-                <li className="bottom-nav-li">
+                {/* <li className="bottom-nav-li">
                     <span className="navLink" aria-label="link to twitter page">
                         Twitter
                     </span>
-                </li>
+                </li> */}
                 {(() => { if (props.loggedIn && props.currentBandUser) { 
                     return <div className="inline-div"><li className="bottom-nav-li">
                         <span className="btn" onClick={() => {

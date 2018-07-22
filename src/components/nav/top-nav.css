@@ -4,17 +4,31 @@
     /* top: 75px; */
     width: 100%;
     text-align: center;
-    min-width: 750px;
-    
+    min-width: 700px;
+    overflow: hidden;
+    padding-left: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.swipe-overlay {
+    visibility: hidden;
+    position: fixed;
+    top: 42px;
+    padding-top: 10px;
+    padding-left: 70%;
+    text-align: left;
+    font-size: 30px;
+    font-family: 'Roboto Mono', monospace;
 }
 
 /* The navigation bar */
 .top-nav {
     overflow: auto;
     background-color: #333;
-    position: absolute; /* Set the navbar to fixed position */
+    position: absolute; 
     top: 75px; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
+    width: 100%; 
     font-family: 'Righteous', cursive;
     font-size: 20px;
     white-space: nowrap;
@@ -45,3 +59,45 @@
     text-align: center;
     text-decoration: none;
 }
+
+
+
+/* .swipe-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: gray;
+    /* opacity: 0.3; 
+    z-index: 10;
+    
+} */
+
+@media only screen and (max-width: 500px) {
+    .swipe-overlay {
+        visibility: visible;
+        position: fixed;
+        /* top: 42px; */
+        height: 46px;
+        width: 100%;
+        background: rgba(255, 130, 84, 0.644);
+        opacity: 0.85;
+        z-index: 11;
+        transition: 2s;
+        padding-left: 25%;
+    }
+
+    .swipe-overlay-container {
+        visibility: hidden;
+        /* display: none; */
+        transition-delay: 2s;
+        transition: 1s 2s;
+        opacity: 0;
+    }
+
+    .top-nav {
+        top: 42px;
+    }
+
+} 

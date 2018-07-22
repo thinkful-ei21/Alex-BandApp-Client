@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import App from '../App';
 import './home.css'
 import {fetchBand} from '../actions/band'
+import './app-router.css'
 
 class AppRouter extends React.Component {
 
@@ -19,7 +20,7 @@ class AppRouter extends React.Component {
     }
     render() {
   return (
-    <div>{this.setPage()}</div>
+    <div id="app-router">{this.setPage()}</div>
   );
 }
 }

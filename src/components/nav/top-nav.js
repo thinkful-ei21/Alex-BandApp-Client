@@ -8,6 +8,7 @@ import './top-nav.css';
 
 export function TopNav(props) {
     return (
+        
         <nav className="top-nav">
             <ul className="navList">
                 <li>
@@ -41,7 +42,11 @@ export function TopNav(props) {
                     </span>
                 </li>
             </ul>
+            <div className="swipe-overlay-container">
+                <div className="swipe-overlay">SWIPE &larr; </div>
+            </div>
         </nav>
+       
     );
 }
 

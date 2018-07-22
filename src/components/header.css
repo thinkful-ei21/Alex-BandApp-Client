@@ -1,6 +1,7 @@
 .logo {
     height: 74px;
     background-color: white;
+    /* padding-bottom: 2px; */
 }
 
 .logo-image {
@@ -16,8 +17,12 @@
 @media only screen and (max-width: 500px) {
     .logo-image {
         width: 280px;
-        height: 60%;
-        margin-top: 15px;
+        height: 100%;
+        margin-top: 0px;
+    }
+
+    .logo {
+        height: 40px;
     }
     
 } 

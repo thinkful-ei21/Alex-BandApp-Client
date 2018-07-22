@@ -7,11 +7,12 @@ import App from './App'
 import AppRouter from './components/app-router';
 import HomeHome from './components/home-home'
 import registerServiceWorker from './registerServiceWorker';
+import './index.css'
 
 ReactDOM.render(
 <Provider store={store}>
 <Router>
-    <div >
+    <div id="index">
     <Route exact path="/:band" component={AppRouter} />
     <Route exact path="/" component={HomeHome} />
     {/* <Route exact path="/" render={() => <Redirect to="/home"/>} /> */}
