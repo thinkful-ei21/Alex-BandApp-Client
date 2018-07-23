@@ -40,6 +40,11 @@
     padding: 0px;
 }
 
+.date-span {
+    display: block;
+    padding-top: 5px;
+}
+
 @media only screen and (max-width: 500px) {
 
     .post-list-container {
@@ -64,6 +69,18 @@
     }
   }
 
+  @media only screen and (max-width: 375px) {
+
+    .post-list-container {
+        
+        max-height: 95%;
+        min-height: 95%;
+        
+    }
+
+
+  }
+
   @media only screen and (max-width: 320px) {
 
     .post-list-container {
@@ -76,15 +93,5 @@
 
   }
 
-  @media only screen and (max-width: 375px) {
-
-    .post-list-container {
-        
-        max-height: 95%;
-        min-height: 95%;
-        
-    }
-
-
-  }
+  
 

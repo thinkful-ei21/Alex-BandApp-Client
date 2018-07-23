@@ -30,7 +30,7 @@ export class EditPostForm extends React.Component {
             </section>
             <section className="edit-post-form-section">
             <label htmlFor="mediaUrl">Media URL</label>
-            <Field className="edit-post-form-fields" name="mediaUrl" id="mediaUrl" type="text" initial component="input" />
+            <Field className="edit-post-form-fields" name="mediaUrl" id="mediaUrl" type="text" initial component="input" placeholder="optional"/>
             </section>
             <button className="edit-post-submit-button" type="submit">OK</button>
             <button className="edit-post-cancel-button" onClick={() => this.props.dispatch(hideModal())}>Cancel</button>

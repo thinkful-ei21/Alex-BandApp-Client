@@ -26,7 +26,7 @@ export class AddPostForm extends React.Component {
             </section>
             <section className="add-post-form-section">
             <label htmlFor="mediaUrl">Media URL</label>
-            <Field className="add-post-form-fields" name="mediaUrl" id="mediaUrl" type="text" component="input" />
+            <Field className="add-post-form-fields" name="mediaUrl" id="mediaUrl" type="text" component="input" placeholder="optional"/>
             </section>
             <button className="add-post-submit-button" type="submit">OK</button>
             <button className="add-post-cancel-button" onClick={() => this.props.dispatch(hideModal())}>Cancel</button>

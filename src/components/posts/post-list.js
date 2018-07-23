@@ -39,8 +39,15 @@ export class PostList extends React.Component {
                                         return <button onClick={() => this.props.dispatch(showModal("edit-post", item.id))}>Edit</button>
                                     }
                                 })()}
-                                <img alt="" className="post-media" src={item.mediaUrl} />
-                                <span>Posted: {new Date(item.createdAt).toLocaleString()}</span>
+                                {(() => {
+                                    if (item.mediaUrl.includes("png") || item.mediaUrl.includes("jpg")) {
+                                        return <img alt="" className="post-media" src={item.mediaUrl} />
+                                    }
+                                    else if (item.mediaUrl.length > 0){
+                                        return <a href={item.mediaUrl}> link </a>
+                                    }
+                                })()}
+                                <span className="date-span">Posted: {new Date(item.createdAt).toLocaleString()}</span>
                             </li>
                         )
                     })}</ul>

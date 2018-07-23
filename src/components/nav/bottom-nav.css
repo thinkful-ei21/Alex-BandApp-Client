@@ -75,4 +75,18 @@
         padding: 14px 10px 14px 10px;
     }
     
+}
+
+@media only screen and (max-width: 320px) {
+    
+    .bottom-nav-li {
+        font-size: 16px;
+        padding: 17px 10px 17px 10px;
+    }
+
+    .bottom-nav-first-child {
+        font-size: 16px;
+        padding: 17px 10px 17px 10px;
+    }
+    
 } 

@@ -12,6 +12,10 @@
     display: none;
 }
 
+.mobile-feed-container {
+   display: inline-block; 
+}
+
 @media only screen and (max-width: 500px) {
 
     .mobile-feed-headers {
