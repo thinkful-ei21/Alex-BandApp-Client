@@ -40,26 +40,28 @@ export class EditEventForm extends React.Component {
             })}
             </datalist>
             <h1>Edit Event</h1>
+            <div className="text-left">
             <section className="add-event-form-section">
             <label htmlFor="title">Title</label>
             <Field className="add-event-form-fields" name="title" id="title" type="text" component='input' validate={[required, nonEmpty]}/>
             </section>
             <section className="add-event-form-section">
             <label htmlFor="picUrl">Pic URL</label>
-            <Field className="add-event-form-fields" name="picUrl" id="picUrl" type="text" initial component='input' />
+            <Field className="add-event-form-fields" name="picUrl" id="picUrl" type="text" initial component='input' placeholder="optional"/>
             </section>
             <section className="add-event-form-section">
             <label htmlFor="description">Description</label>
-            <Field className="add-event-form-fields" name="description" id="description" type="description" initial component='input' />
+            <Field className="add-event-form-fields" name="description" id="description" type="description" initial component='input' placeholder="optional"/>
             </section>
             <section className="add-event-form-section">
             <label htmlFor="eventDate" className="event-date-label">Event Date</label>
-            <Field className="add-event-form-fields" name="eventDate" id="eventDate" initial component="input" type="datetime-local" />
+            <Field className="add-event-form-fields" name="eventDate" id="eventDate" initial component="input" type="datetime-local" validate={[required, nonEmpty]}/>
             </section>
             <section className="add-event-form-section">
             <label htmlFor="location">Location</label>
-            <Field className="add-event-form-fields" name="location" id="location" list='locList' type="location" onChange={(e) => this.locFieldChange(e.target.value)} initial component='input' />
+            <Field className="add-event-form-fields" name="location" id="location" list='locList' type="location" onChange={(e) => this.locFieldChange(e.target.value)} initial component='input' validate={[required, nonEmpty]}/>
             </section>
+            </div>
             <button className="add-event-submit-button" type="submit">OK</button>
             <button className="add-event-cancel-button" onClick={() => this.props.dispatch(hideModal())}>Cancel</button>
         </form>

@@ -1,0 +1,26 @@
+.delete-event-form {
+    width: 400px;
+    height: 400px;
+    border: dotted cadetblue 3px;
+    text-align: center;
+}
+
+.delete-event-submit-button{
+    font-size: 20px;
+    margin-right: 20px;
+    margin-top: 75px;
+    width: 80px;
+}
+
+.delete-event-cancel-button{
+    font-size: 20px;
+    width: 80px;
+}
+
+@media only screen and (max-width: 500px) {
+    .delete-event-form {
+        height: 200px;
+        width: 300px;
+    }
+    
+}

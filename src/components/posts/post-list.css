@@ -35,6 +35,12 @@
     margin-top: 5px;
 }
 
+.post-media-link {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
 .post-list-ul {
     height: 100%;
     padding: 0px;

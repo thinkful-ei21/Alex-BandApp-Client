@@ -29,9 +29,9 @@ export class RegistrationForm extends React.Component {
                     this.onSubmit(values)
                 )}>
                 <label htmlFor="firstName">First name</label>
-                <Field component={Input} type="text" name="firstName" />
+                <Field component={Input} type="text" name="firstName" placeholder="optional"/>
                 <label htmlFor="lastName">Last name</label>
-                <Field component={Input} type="text" name="lastName" />
+                <Field component={Input} type="text" name="lastName" placeholder="optional"/>
                 <label htmlFor="username">Username</label>
                 <Field
                     component={Input}

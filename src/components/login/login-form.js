@@ -4,13 +4,16 @@ import Input from './input';
 import {login} from '../../actions/auth';
 import {required, nonEmpty} from '../../validators';
 import {hideModal} from '../../actions/modals'
+import { SubmissionError } from 'redux-form';
 
 import './login-form.css'
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
-        this.props.dispatch(login(values.username, values.password));
-        this.props.dispatch(hideModal());
+        return this.props.dispatch(login(values.username, values.password)).then(
+         () => this.props.dispatch(hideModal())
+        )
+        
     }
 
     render() {

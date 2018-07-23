@@ -23,6 +23,7 @@ export class EditPostForm extends React.Component {
         onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values))}
         className="post-form" >
+            
             <h1>Edit Post</h1>
             <section className="edit-post-form-section">
             <label className="edit-post-label" htmlFor="message">Message</label>

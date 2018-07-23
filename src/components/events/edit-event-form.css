@@ -19,11 +19,13 @@
 
 .edit-event-form-fields {
     margin-left: 5px;
+    float: right;
 }
 
 .edit-event-form-section {
     padding: 5px;
     width: 100%;
+    text-align: left;
 }
 
 .event-date {
@@ -32,6 +34,10 @@
     height: 20px;
     /* display: inline-block;
     text-align: top; */
+}
+
+.text-left {
+    text-align: center;
 }
 
 .event-date-label {
@@ -47,4 +53,12 @@
 .edit-div {
     display: inline-block;
     border: solid black 3 px;
+}
+
+@media only screen and (max-width: 500px) {
+    .event-form {
+        width: 300px;
+        
+    }
+    
 }

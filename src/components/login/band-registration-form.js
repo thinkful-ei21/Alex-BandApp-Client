@@ -10,7 +10,7 @@ import validate from './validate'
 import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
 import {connect} from 'react-redux';
 const passwordLength = length({min: 6, max: 72});
-const urlLength = length({min: 1, max: 40});
+const nameLength = length({min: 1, max: 40});
 const matchesPassword = matches('password');
 
 export class BandRegistrationForm extends React.Component {
@@ -18,7 +18,8 @@ export class BandRegistrationForm extends React.Component {
         // console.log("triggered")
     }
     onSubmit(values) {
-        const {username, password, firstName, lastName, bandName, bandUrl, bannerUrl} = values;
+        const {username, password, firstName, lastName, bandName, bannerUrl} = values;
+        const bandUrl = bandName.replace(" ", "-")
         const newband = {username, bandName, bandUrl, bannerUrl};
         this.props.dispatch(registerBand(newband))
         .then( (res)=> {
@@ -37,15 +38,15 @@ export class BandRegistrationForm extends React.Component {
                     this.onSubmit(values)}
                 )}>
                 <label htmlFor="bandName">Band Name</label>
-                <Field component={Input} type="text" name="bandName" />
-                <label htmlFor="bandUrl">Band URL (text to come after '/' in Url)</label>
-                <Field component={Input} type="text" name="bandUrl" validate={[required, nonEmpty, urlLength, isTrimmed]}/>
+                <Field component={Input} type="text" name="bandName" validate={[required, nonEmpty, isTrimmed, nameLength]}/>
+                {/* <label htmlFor="bandUrl">Band URL (text to come after '/' in Url)</label>
+                <Field component={Input} type="text" name="bandUrl" validate={[required, nonEmpty, urlLength, isTrimmed]}/> */}
                 <label htmlFor="bannerUrl">Banner URL</label>
-                <Field component={Input} type="text" name="bannerUrl" />
+                <Field component={Input} type="text" name="bannerUrl" placeholder="optional"/>
                 <label htmlFor="firstName">First name</label>
-                <Field component={Input} type="text" name="firstName" />
+                <Field component={Input} type="text" name="firstName" placeholder="optional"/>
                 <label htmlFor="lastName">Last name</label>
-                <Field component={Input} type="text" name="lastName" />
+                <Field component={Input} type="text" name="lastName" placeholder="optional"/>
                 <label htmlFor="username">Username</label>
                 <Field
                     component={Input}
@@ -89,7 +90,7 @@ let x = reduxForm({
     form: 'band-registration',
     validate,
     asyncValidate,
-    asyncBlurFields: ['username', 'bandName', 'bandUrl'],
+    asyncBlurFields: ['username', 'bandName'],
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('band-registration', Object.keys(errors)[0]))
 })(BandRegistrationForm);

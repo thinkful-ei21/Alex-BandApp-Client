@@ -35,13 +35,19 @@ export class HomeHome extends React.Component {
         <div className="band-list">
         <div>
         <h1 className="the-bands">The Bands</h1>
-        <ul className="all-bands-list">{this.props.allBands.map((item, index) =>{
-                return (
-                    <li className="all-bands-list-item" key={index}>
-                    <a href={"/" + item.bandUrl}>{item.name}</a>
-                    </li>
-                )
-            })}</ul>
+        {(() => {
+              if (this.props.loadingPosts) {
+                  return <span className="loading-span">loading</span>
+              } else {
+                return <ul className="all-bands-list">{this.props.allBands.map((item, index) =>{
+                  return (
+                      <li className="all-bands-list-item" key={index}>
+                      <a href={"/" + item.bandUrl}>{item.name}</a>
+                      </li>
+                  )
+              })}</ul>
+              }
+        })()}
         </div>
         <div className="button-container">
         <button className="register-band-button" onClick={() => this.props.dispatch(showModal("band-registration-page"))}>Register Band</button>
@@ -81,7 +87,9 @@ const mapStateToProps = (state) => ({
     allLocations: state.locations.locations ? state.locations.locations : [],
     loggedIn: state.auth.currentUser !== null,
     isShowing: state.modals.isShowing,
-    page: state.modals.page
+    page: state.modals.page,
+    loadingPosts: state.posts.loading,
+    loadingLocations: state.locations.loading
 })
 
 export default connect(mapStateToProps)(HomeHome);

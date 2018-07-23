@@ -33,9 +33,17 @@ export function BottomNav(props) {
                         <span  className="navLink navlink-register-band-member" onClick={() => props.dispatch(showModal("registration-page"))}>New Band Member</span>
                     </li></div>
                     }
-                    else {
+                    else if (props.loggedIn && !props.currentBandUser){
+                       return <li className="bottom-nav-li">
+                        <span className="btn" onClick={() => {
+                        props.dispatch(clearAuth())
+                        clearAuthToken()
+                        }}>Logout</span>
+                        </li>
+                    }
+                    else{
                     return <li className="bottom-nav-li">
-                        <span  className="navLink" onClick={() => props.dispatch(showModal("login-page"))}>Band Login</span>
+                        <span  className="navLink" onClick={() => props.dispatch(showModal("login-page"))}>Login</span>
                         </li>
                 }})()}
             </ul>

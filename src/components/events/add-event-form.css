@@ -19,6 +19,7 @@
 
 .add-event-form-fields {
     margin-left: 5px;
+    
 }
 
 .add-event-form-section {
@@ -47,4 +48,12 @@
 .date-div {
     display: inline-block;
     border: solid black 3 px;
+}
+
+@media only screen and (max-width: 500px) {
+    .event-form {
+        width: 300px;
+        text-align: left;
+    }
+    
 }

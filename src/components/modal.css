@@ -16,7 +16,7 @@
     top: 40%;
     transform: translate(-50%, -50%);
     /* width: 300px; */
-    background: white;
+    background: lightgray;
     z-index: 11;
     /* padding: 20px; */
     border-radius: 5px;

@@ -9,13 +9,13 @@ export class DeleteEventForm extends React.Component {
 render(){
 return (
     <div
-        className="event-form">
+        className="delete-event-form">
             <h1>Are you sure you want to delete this event?</h1>
-            <button className="btn" onClick={() => {
+            <button className="delete-event-submit-button" onClick={() => {
                 this.props.dispatch(deleteEvent(this.props.id, this.props.band[0]))
                 this.props.dispatch(hideModal())
                 }}>OK</button>
-            <button className="btn" onClick={() => this.props.dispatch(hideModal())}>Cancel</button>
+            <button className="delete-event-cancel-button" onClick={() => this.props.dispatch(hideModal())}>Cancel</button>
         </div>
   );
 }}
