@@ -14,7 +14,7 @@ export class Feeds extends React.Component {
   }
 
   render() {
-    console.log(this.props.hidden)
+    // console.log(this.props.hidden)
   return (
     <div className="feeds">
       <div className="mobile-feed-container">

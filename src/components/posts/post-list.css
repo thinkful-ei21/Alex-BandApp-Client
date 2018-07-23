@@ -11,7 +11,7 @@
 .actual-post-list-container{
     
     display: inline-block;
-    /* margin-right: 20px; */
+    margin-right: 20px;
     height: 100%;
     /* overflow-y: scroll; */
 }
@@ -45,10 +45,20 @@
     padding-top: 5px;
 }
 
+.date-span:hover {
+    color: black
+}
+
 .no-recent-posts {
     display: block;
     font-size: 20px;
     margin-top: 10px;
+}
+
+@media only screen and (max-width: 1046px) {
+    .actual-post-list-container{
+        margin-right: 0px;
+    } 
 }
 
 @media only screen and (max-width: 500px) {

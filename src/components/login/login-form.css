@@ -1,3 +1,10 @@
 form {
     color: black;
+    background-color: gray;
+    padding: 4px;
+    text-align: center;
+}
+
+input {
+    margin-bottom: 5px;
 }
