@@ -5,15 +5,24 @@ import Modal from './modal'
 import {fetchAllBands} from '../actions/band'
 import {fetchAllLocations} from '../actions/locations'
 import {hideModal} from '../actions/modals'
+import {clearAuth} from '../actions/auth';
+import {clearAuthToken} from '../local-storage';
 import './home-home.css'
 
 export class HomeHome extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchAllBands())
     this.props.dispatch(fetchAllLocations())
-    console.log(this.props.loggedIn)
+    this.props.dispatch(showModal("landing-page")) 
   }
   render(){
+    if (this.props.loggedIn) {
+      if(this.props.isShowing) {
+        if(this.props.page === "landing-page"){
+          this.props.dispatch(hideModal())
+        }
+      }
+    }
   return (
     <div className="home-home">
       <main role="main">
@@ -36,7 +45,16 @@ export class HomeHome extends React.Component {
         </div>
         <div className="button-container">
         <button className="register-band-button" onClick={() => this.props.dispatch(showModal("band-registration-page"))}>Register Band</button>
-        <button className="home-login-button" onClick={() => this.props.dispatch(showModal("band-registration-page"))}>Login</button>
+        {(() => {
+              if (!this.props.loggedIn) {
+                  return <button className="home-login-button" onClick={() => this.props.dispatch(showModal("login-page"))}>Login</button>
+              } else {
+                return <button className="home-login-button" onClick={() => {
+                  this.props.dispatch(clearAuth())
+                  clearAuthToken()
+                }}>Log Out</button>
+              }
+        })()}
         </div>
         </div>
         </div>
@@ -46,7 +64,7 @@ export class HomeHome extends React.Component {
         <ul className="all-bands-list">{this.props.allLocations.map((item, index) =>{
                 return (
                     <li className="all-bands-list-item" key={index}>
-                    <span>{item.name}</span>
+                    <span onClick={()=>this.props.dispatch(showModal("coming-soon"))}>{item.name}</span>
                     </li>
                 )
             })}</ul>
@@ -61,7 +79,9 @@ export class HomeHome extends React.Component {
 const mapStateToProps = (state) => ({
     allBands: state.band.allBands ? state.band.allBands : [],
     allLocations: state.locations.locations ? state.locations.locations : [],
-    loggedIn: state.auth.currentUser !== null
+    loggedIn: state.auth.currentUser !== null,
+    isShowing: state.modals.isShowing,
+    page: state.modals.page
 })
 
 export default connect(mapStateToProps)(HomeHome);

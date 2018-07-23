@@ -24,6 +24,7 @@ export function LandingPage(props) {
           <li>Show and filter all bands posts and events on home page.</li>
           <li>Connect page to band Facebook and Google Image accounts.</li>
           <li>Improved styling.</li>
+          <li>Top nav bar functionality on band pages.</li>
           <li>Multiple Cities!!</li>
       </ul>
       <button onClick={() => props.dispatch(hideModal())}>Close</button>

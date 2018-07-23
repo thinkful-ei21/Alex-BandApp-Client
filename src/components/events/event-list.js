@@ -24,6 +24,11 @@ export class EventList extends React.Component {
             {(() => { if (this.props.loggedIn && this.props.currentBandUser) { 
                 return <button className="btn" onClick={() => this.props.dispatch(showModal("add-event-form"))}>Add Event</button>
             }})()}
+            {(() => {
+                if (this.props.events.length === 0) {
+                    return <span className="no-upcoming-events">No Upcoming Events</span>
+                }
+            })()}
             <ul className="event-list-ul">{this.props.events.map((item, index) =>{
                 //console.log(item.location[0].name)
                 return (

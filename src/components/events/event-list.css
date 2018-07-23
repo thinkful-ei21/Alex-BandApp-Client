@@ -38,11 +38,17 @@
     width: 500px;
 }
 
+.no-upcoming-events {
+    display: block;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
 @media only screen and (max-width: 500px) {
 
     .event-list-container {
         
-        min-width: 280px;
+        min-width: 316px;
         max-height: 100%;
         min-height: 100%;
         

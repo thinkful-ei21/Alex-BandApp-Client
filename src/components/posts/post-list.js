@@ -24,6 +24,11 @@ export class PostList extends React.Component {
                             return <button className="btn" onClick={() => this.props.dispatch(showModal("add-post-form"))}>Add Post</button>
                         }
                     })()}
+                    {(() => {
+                        if (this.props.posts.length === 0) {
+                            return <span className="no-recent-posts">No Recent Posts</span>
+                        }
+                    })()}
                     <ul className="post-list-ul">{this.props.posts.map((item, index) => {
                         return (
                             <li className="post-list-item" key={index}>
@@ -39,10 +44,10 @@ export class PostList extends React.Component {
                                     }
                                 })()}
                                 {(() => {
-                                    if (item.mediaUrl.includes("png") || item.mediaUrl.includes("jpg")) {
+                                    if (item.mediaUrl && (item.mediaUrl.includes("png") || item.mediaUrl.includes("jpg"))) {
                                         return <img alt="" className="post-media" src={item.mediaUrl} />
                                     }
-                                    else if (item.mediaUrl.length > 0){
+                                    else if (item.mediaUrl && item.mediaUrl.length > 0){
                                         return <a href={item.mediaUrl}> link </a>
                                     }
                                 })()}
