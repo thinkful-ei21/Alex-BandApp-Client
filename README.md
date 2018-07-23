@@ -27,15 +27,16 @@ https://github.com/thinkful-ei21/Alex-BandApp-Server.git
 
 ## Screenshots of the app:
 
+### Landing Page:
+![LandingPage](src/pics/landing-page.png)
+
 ### Home Page:
 ![Login](src/pics/HomePage.png)
 
 Venue links do not lead anywhere yet. Click a band, register a new band, or login to existing username.
 
 ### Band Registration:
-
 ![BandRegistration](src/pics/register_new_band.png)
-
 
 ### New Band Page:
 ![NewBandPage](src/pics/new_band_page.png)
@@ -64,6 +65,8 @@ login for artificial stars is user: manny1806 password: thinkful
 ![newBandMember](src/pics/register_new_band_member.png)
 
 ### Slick Mobile Design:
+![SlickMobileDesign](src/pics/mobile-design.png)
+![SlickMobileDesign](src/pics/mobile-design2.png)
 
 
 ## Tech Stack:
