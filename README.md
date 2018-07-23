@@ -2,12 +2,20 @@
 
 Sioux City Music allows local bands (local to Sioux City, IA) to create a webpage for posting events and announcements that are easily accessible to fans!
 
+## Features:
+- Create posts and events with linkable media.
+- Delete and edit existing posts and events.
+- Register new bands and new band members.
+- React-Redux frontend with custom made modal system.
+- Intuitive and responsive mobile design
+
 ## Future development plans:
-- Allow users to create new locations.
-- Allow locations to create their own pages.
+- Allow users to create locations with individual web pages.
 - Show and filter all bands posts and events on home page.
 - Connect page to band Facebook and Google Image accounts.
-- Improved styling
+- Improved styling.
+- Top nav bar functionality on band pages.
+- Multiple Cities!!
 
 ## Link to the live version:
 
@@ -22,13 +30,12 @@ https://github.com/thinkful-ei21/Alex-BandApp-Server.git
 ### Home Page:
 ![Login](src/pics/HomePage.png)
 
-Venue links do not lead anywhere yet. Click a band or register a new band.
+Venue links do not lead anywhere yet. Click a band, register a new band, or login to existing username.
 
 ### Band Registration:
 
 ![BandRegistration](src/pics/register_new_band.png)
 
-Band url is just the text that will come after / and will redirect to your band page.
 
 ### New Band Page:
 ![NewBandPage](src/pics/new_band_page.png)
@@ -55,6 +62,9 @@ login for artificial stars is user: manny1806 password: thinkful
 
 ### Register New Band Member:
 ![newBandMember](src/pics/register_new_band_member.png)
+
+### Slick Mobile Design:
+
 
 ## Tech Stack:
 
