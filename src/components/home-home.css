@@ -48,14 +48,29 @@
 }
 
 .register-band-button {
-    font-size: 18px;
-    display: inline;
+    font-size: 16px;
+    display: inline-block;
+    height: 30px;
     /* position: absolute;
     left: 29%;
     bottom: 5px; */
     border-radius: 2%;
     font-family: 'Duru Sans', sans-serif;
 }
+
+.home-login-button {
+    font-size: 16px;
+    display: inline-block;
+    margin-left: 10px;
+    height: 30px;
+    width: 128px;
+    /* position: absolute;
+    left: 29%;
+    bottom: 5px; */
+    border-radius: 2%;
+    font-family: 'Duru Sans', sans-serif;
+}
+
 .button-container {
     position: absolute;
     bottom: 5px;
@@ -176,6 +191,14 @@
     .all-bands-list-item {
         font-size: 20px;
         
+    }
+
+    .home-login-button {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        margin-top: 5px;
+    
     }
     
 }

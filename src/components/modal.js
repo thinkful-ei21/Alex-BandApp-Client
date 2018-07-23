@@ -10,6 +10,7 @@ import RegistrationPage from './login/registration-page'
 import LoginPage from './login/login-form'
 import BandRegistrationPage from './login/band-registration-page'
 import ComingSoon from './coming-soon'
+import LandingPage from './landing-page'
 import {setEventEditIndex} from '../actions/event-list'
 
 import './modal.css'
@@ -47,7 +48,9 @@ class Modal extends Component {
     else if (this.props.page === 'coming-soon'){
       return <ComingSoon /> 
     }
-    
+    else if (this.props.page === 'landing-page'){
+      return <LandingPage />
+    }
   }
   render() {
 

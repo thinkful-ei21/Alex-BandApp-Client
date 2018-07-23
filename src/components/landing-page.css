@@ -1,0 +1,37 @@
+.landing-page-container {
+    color: black;
+    text-align: center;
+    padding: 8px;
+    background: linear-gradient(to top, brown 0%, rgb(207, 202, 186) 100%);
+    border: medium black 3px;
+    border-radius: 5px;
+}
+
+.landing-desc-header {
+    max-width: 500px;
+}
+
+@media only screen and (max-width: 500px) {
+
+    h1 {
+        font-size: 20px;
+    }
+    
+    .landing-desc-header {
+        font-size: 15px;
+    }
+
+    .landing-page-container {
+        width: 290px;
+    }
+
+    .landing-page-container ul {
+        text-align: left;
+        
+    }
+
+    .landing-page-container li {
+        font-size: 13px;
+    }
+    
+  }
