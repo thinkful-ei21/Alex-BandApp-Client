@@ -16,6 +16,14 @@
    display: inline-block; 
 }
 
+#tab-1 {
+    display: none;
+}
+
+#tab-2 {
+    display: none;
+}
+
 @media only screen and (max-width: 500px) {
 
     .mobile-feed-headers {
@@ -28,6 +36,13 @@
     .feeds{
         margin-bottom: 0px;
         height: 100%;
+    }
+    #tab-1 {
+        display: inline;
+    }
+    
+    #tab-2 {
+        display: inline;
     }
     
   }

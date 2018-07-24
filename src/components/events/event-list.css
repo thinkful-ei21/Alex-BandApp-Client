@@ -6,6 +6,7 @@
     margin-right: 10px;
     margin-bottom: 8px;
     background-color: whitesmoke;
+    overflow-wrap: break-word;
 }
 
 .event-list-container {
