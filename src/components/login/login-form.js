@@ -4,7 +4,7 @@ import Input from './input';
 import {login} from '../../actions/auth';
 import {required, nonEmpty} from '../../validators';
 import {hideModal} from '../../actions/modals'
-import { SubmissionError } from 'redux-form';
+// import { SubmissionError } from 'redux-form';
 
 import './login-form.css'
 

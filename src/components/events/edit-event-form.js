@@ -5,7 +5,7 @@ import {reduxForm, Field} from 'redux-form';
 import {required, nonEmpty} from '../../validators';
 import {editEvent} from '../../actions/event-list'
 import {fetchLocationsSearch} from '../../actions/locations'
-import {fetchEventsByBand} from '../../actions/event-list'
+// import {fetchEventsByBand} from '../../actions/event-list'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './edit-event-form.css';
 

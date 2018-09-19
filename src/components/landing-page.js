@@ -18,6 +18,7 @@ export function LandingPage(props) {
           <li>Register new bands and new band members.</li>
           <li>React-Redux frontend with custom made modal system.</li>
           <li>Intuitive and responsive mobile design </li>
+          <li>Try it out with this test account!<br/> user: manny1806 password: thinkful</li>
       </ul>
       <ul> Future development plans:
           <li>Allow users to create locations with individual web pages.</li>

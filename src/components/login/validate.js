@@ -1,6 +1,6 @@
 const validate = values => {
     const errors = {}
-    const unsafeChars = [" ", ";", "/", ":", "@", "=", "&", ">", "<", "#", "%", "^", "~", "`", "\"","\'"]
+    // const unsafeChars = [" ", ";", "/", ":", "@", "=", "&", ">", "<", "#", "%", "^", "~", "`", "\"","\'"]
     if (!values.username) {
       errors.username = 'Required'
     }
@@ -51,9 +51,9 @@ const validate = values => {
         errors.bandName = 'cannot have `'
       }
       if (values.bandName.search("\"") !== -1) {
-        errors.bandName = 'cannot have \"'
+        errors.bandName = 'cannot have "'
       }
-      if (values.bandName.search("\'") !== -1) {
+      if (values.bandName.search("'") !== -1) {
         errors.bandName = 'cannot have \''
       }
       // if (values.bandName.search(".") !== -1) {

@@ -5,10 +5,10 @@ import {reduxForm, Field} from 'redux-form';
 import {required, nonEmpty} from '../../validators';
 import {addEvent} from '../../actions/event-list'
 import {fetchLocationsSearch} from '../../actions/locations'
-import { DatePicker } from 'redux-form-material-ui';
+// import { DatePicker } from 'redux-form-material-ui';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './add-event-form.css';
-const invalidLoc = value => value.trim() !== '' ? undefined : 'Cannot be empty';
+// const invalidLoc = value => value.trim() !== '' ? undefined : 'Cannot be empty';
 
 export class AddEventForm extends React.Component {
     onSubmit(values) {
