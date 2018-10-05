@@ -13,7 +13,7 @@ export class HomeHome extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchAllBands())
     this.props.dispatch(fetchAllLocations())
-    this.props.dispatch(showModal("landing-page")) 
+    // this.props.dispatch(showModal("landing-page")) 
   }
   render(){
     if (this.props.loggedIn) {
@@ -23,6 +23,7 @@ export class HomeHome extends React.Component {
         }
       }
     }
+
   return (
     <div className="home-home">
       <main role="main">

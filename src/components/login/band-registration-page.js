@@ -9,7 +9,7 @@ export function BandRegistrationPage(props) {
     
     return (
         <div className="home band-reg-page">
-            <h2>Register New Band</h2>
+            <h2>REGISTER NEW BAND</h2>
             <BandRegistrationForm />
             {/* <Link to="/">Login</Link> */}
         </div>

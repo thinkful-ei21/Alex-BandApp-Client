@@ -3,6 +3,8 @@ form {
     background-color: gray;
     padding: 4px;
     text-align: center;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
 }
 
 input {

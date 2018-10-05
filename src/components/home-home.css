@@ -36,13 +36,14 @@
 
 .home-home {
     text-align: center;
-    max-width: 800px;
+    /* max-width: 800px; */
     margin-left: auto;
     margin-right: auto;
-    margin-top: 75px;
-    border: solid white 2px;
+    /* margin-top: 75px; */
+    /* border: solid white 2px; */
     background-color: rgba(77, 8, 8, 0.808);
     color: white;
+    height: 100%;
     /* position: relative; */
 }
 
@@ -50,6 +51,7 @@
     display: inline-block;
     padding-left: 10px;
     padding-right: 10px;
+    /* height: 100%; */
 }
 
 .register-band-button {
@@ -89,17 +91,59 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
+    animation: home-banner 3s forwards;
 }
+
 
 .home-banner-text {
     display: block; 
     font-size: 60px;
     font-family: 'Hammersmith One', sans-serif;
+    animation: home-banner-text-text 4s forwards;
 }
+
 
 .banner-text-container {
     margin-top: 75px;
     display: inline-block;
+    animation: home-banner-text 3s forwards;
+}
+
+@keyframes home-banner-text-text {
+    0%   {
+        opacity: 0;
+        /* font-size: 30px;  */
+    }
+    100% {
+        opacity: 1;
+        /* font-size: 60px; */
+    }
+}
+
+@keyframes home-banner-text {
+    0%   {
+        opacity: 0;
+        font-size: 30px;
+        margin-top: 0px; 
+    }
+    100% {
+        opacity: 1;
+        font-size: 60px;
+        margin-top: 75px;
+    }
+}
+
+@keyframes home-banner {
+    0%   {
+        height: 75px;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+    }
+    100% {
+        height: 200px;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%; 
+    }
 }
 
 .all-bands-list-item {

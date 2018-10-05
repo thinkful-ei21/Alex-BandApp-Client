@@ -1,3 +1,11 @@
 .band-reg-page {
     color: black;
+    border-radius: 5%;
+    /* font-family: 'Hammersmith One', sans-serif; */
+}
+
+.band-reg-page h2{
+    font-family: 'Hammersmith One', sans-serif;
+    font-weight: normal;
+    font-size: 1.7em;
 }

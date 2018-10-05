@@ -16,11 +16,11 @@
     top: 40%;
     transform: translate(-50%, -50%);
     /* width: 300px; */
-    background: white;
+    background: lightgray;
     z-index: 11;
     /* padding: 20px; */
-    border-radius: 5px;
-    box-shadow: 1px 2px 10px 0 rgba(0,0,0,0.3);
+    border-radius: 5%;
+    box-shadow: 20px 20px 10px 0 rgba(0,0,0,0.3);
     animation: modal-animation 0.5s normal;
   }
 
