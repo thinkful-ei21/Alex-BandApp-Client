@@ -15,6 +15,29 @@ export class HomeHome extends React.Component {
     this.props.dispatch(fetchAllLocations())
     // this.props.dispatch(showModal("landing-page")) 
   }
+  renderBands(){
+    if(this.props.bandsLoading){
+      return (
+        <div className="bands-loader">
+        </div>
+      )
+    }
+  else {
+    return (
+      <div className="band-list-container">
+      <ul className="all-bands-list band-list-container">{this.props.allBands.map((item, index) =>{
+              return (
+                  <div className="single-band-containter">
+                  <li className="all-bands-list-item" key={index}>
+                  <a href={"/" + item.bandUrl}>{item.name}</a>
+                  </li>
+                  </div>
+              )
+          })}</ul>
+      </div>
+    )
+  }
+  }
   render(){
     if (this.props.loggedIn) {
       if(this.props.isShowing) {
@@ -36,13 +59,18 @@ export class HomeHome extends React.Component {
         <div className="band-list">
         <div>
         <h1 className="the-bands">The Bands</h1>
-        <ul className="all-bands-list">{this.props.allBands.map((item, index) =>{
+        {this.renderBands()}
+        {/* <div className="band-list-container">
+        <ul className="all-bands-list band-list-container">{this.props.allBands.map((item, index) =>{
                 return (
+                    <div className="single-band-containter">
                     <li className="all-bands-list-item" key={index}>
                     <a href={"/" + item.bandUrl}>{item.name}</a>
                     </li>
+                    </div>
                 )
             })}</ul>
+        </div> */}
         </div>
         <div className="button-container">
         <button className="register-band-button" onClick={() => this.props.dispatch(showModal("band-registration-page"))}>Register Band</button>
@@ -62,13 +90,17 @@ export class HomeHome extends React.Component {
         <div className="row-container">
         <div className="register-band">
         <h1 className="the-venues">The Venues</h1>
-        <ul className="all-bands-list">{this.props.allLocations.map((item, index) =>{
+        <div className="band-list-container">
+        <ul className="all-bands-list band-list-container">{this.props.allLocations.map((item, index) =>{
                 return (
+                    <div className="single-band-containter">
                     <li className="all-bands-list-item" key={index}>
                     <span onClick={()=>this.props.dispatch(showModal("coming-soon"))}>{item.name}</span>
                     </li>
+                    </div>
                 )
             })}</ul>
+        </div>
         </div>
         </div>
         <Modal />
@@ -82,7 +114,8 @@ const mapStateToProps = (state) => ({
     allLocations: state.locations.locations ? state.locations.locations : [],
     loggedIn: state.auth.currentUser !== null,
     isShowing: state.modals.isShowing,
-    page: state.modals.page
+    page: state.modals.page,
+    bandsLoading: state.band.loading
 })
 
 export default connect(mapStateToProps)(HomeHome);

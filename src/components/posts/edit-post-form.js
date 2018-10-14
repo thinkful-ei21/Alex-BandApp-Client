@@ -4,8 +4,20 @@ import {hideModal} from '../../actions/modals'
 import {reduxForm, Field} from 'redux-form';
 import {required, nonEmpty} from '../../validators';
 import {editPost, fetchPost} from '../../actions/post-list'
-
+import {API_BASE_URL} from '../../config';
+import axios from 'axios'
 import './edit-post-form.css';
+
+const file_upload= ({ input, type, meta: { touched, error, warning } }) => {
+    delete input.value
+    return (
+      <div>
+        <label htmlFor={input.name}>
+          <input {...input} type={type} accept="image/*"/>
+        </label>
+      </div>
+    )
+}
 
 export class EditPostForm extends React.Component {
     componentDidMount(){

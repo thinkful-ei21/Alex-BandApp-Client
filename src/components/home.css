@@ -14,11 +14,12 @@ main {
     text-align: center;
     width: 100%;
     height: 100%;
+    overflow: scroll;
 }
 
-#main {
+/* #main {
     height: 100%;
-}
+} */
 
 
 @media only screen and (max-width: 500px) {

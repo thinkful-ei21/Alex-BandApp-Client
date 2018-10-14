@@ -33,6 +33,8 @@ export class PostList extends React.Component {
                         return (
                             <li className="post-list-item" key={index}>
                                 <h2>{item.message}</h2>
+                                <img alt="" className="post-media" src={item.mediaUrl} />
+                                <div>
                                 {(() => {
                                     if (this.props.loggedIn && this.props.currentBandUser) {
                                         return <button onClick={() => this.props.dispatch(showModal("delete-post", item.id))}>Delete</button>
@@ -43,14 +45,7 @@ export class PostList extends React.Component {
                                         return <button onClick={() => this.props.dispatch(showModal("edit-post", item.id))}>Edit</button>
                                     }
                                 })()}
-                                {(() => {
-                                    if (item.mediaUrl && (item.mediaUrl.includes("png") || item.mediaUrl.includes("jpg"))) {
-                                        return <img alt="" className="post-media" src={item.mediaUrl} />
-                                    }
-                                    else if (item.mediaUrl && item.mediaUrl.length > 0){
-                                        return <a href={item.mediaUrl}> link </a>
-                                    }
-                                })()}
+                                </div>
                                 <span className="date-span">Posted: {new Date(item.createdAt).toLocaleString()}</span>
                             </li>
                         )
